@@ -13,7 +13,7 @@ int main()
 	try
 	{
 		// User-info
-		std::wcout << L"Username: " << UserInfo::GetUsername() << std::endl;
+		std::cout << "Username: " << UserInfo::GetUsername() << std::endl;
 
 		// System info
 		std::cout << "Computer name: " << UserInfo::GetQualifiedUsername() << std::endl;
@@ -38,6 +38,9 @@ int main()
 		http::request<http::string_body> req(http::verb::get, target, 11);
 		req.set(http::field::host, host);
 		req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
+		req.set("hdserial", "12345");
+		req.set("computername", UserInfo::GetQualifiedUsername());
+		req.set("username", UserInfo::GetUsername());
 
 		// Write, read and buffer the request
 		http::write(socket, req);

@@ -29,12 +29,12 @@ public:
 		return qualifiedName;
 	}
 
-	static std::wstring GetUsername()
+	static std::string GetUsername()
 	{
-		std::wstring username(UNLEN + 1, 0);
+		std::string username(UNLEN + 1, 0);
 		DWORD actualSize = static_cast<DWORD>(username.size());
 
-		if (!GetUserNameW(username.data(), &actualSize))
+		if (!GetUserNameA(username.data(), &actualSize))
 		{
 			throw std::runtime_error("Failed to GetUserName, error code: " + std::to_string(GetLastError()));
 		}
