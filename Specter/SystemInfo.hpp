@@ -21,7 +21,7 @@ public:
 	{
 		// TODO this implementation takes the Volume serial number which is easy to change, 
 		// it doesn't acquire the Hard Disk serial number, which is hardcoded.
-		DWORD volumeSerialNumber = 0;
+		DWORD volumeSerialNumber;
 		if (!GetVolumeInformationW(L"C:\\", nullptr, 0, &volumeSerialNumber, nullptr, nullptr, nullptr, 0))
 		{
 			throw SyscallException("Failed to acquire hdserial via GetVolumeInformationW()");
