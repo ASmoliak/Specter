@@ -1,8 +1,5 @@
 #pragma once
 #include <windows.h>
-#include <comdef.h>
-#include <Wbemidl.h>
-#include <chrono>
 
 #include "TimeUtils.hpp"
 #include "SyscallException.hpp"

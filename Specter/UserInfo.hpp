@@ -1,9 +1,9 @@
 #pragma once
 #include <windows.h>
 #include <lmcons.h>
-#include <stdexcept>
-#include <string>
 #include <sysinfoapi.h>
+
+#include "SyscallException.hpp"
 
 class UserInfo
 {
@@ -17,13 +17,13 @@ public:
 
 		if (GetLastError() != ERROR_MORE_DATA)
 		{
-			throw std::runtime_error("GetComputerNameExA() didn't fail with ERROR_MORE_DATA as expected, error code: " + std::to_string(GetLastError()));
+			throw SyscallException("GetComputerNameExA() didn't fail with ERROR_MORE_DATA as expected");
 		}
 
 		std::string qualifiedName(static_cast<uint64_t>(actualSize) + 1, 0);
 		if (!GetComputerNameExA(ComputerNameDnsFullyQualified, qualifiedName.data(), &actualSize))
 		{
-			throw std::runtime_error("GetComputerNameExA() failed, error code: " + std::to_string(GetLastError()));
+			throw SyscallException("GetComputerNameExA() failed");
 		}
 
 		return qualifiedName;
@@ -36,7 +36,7 @@ public:
 
 		if (!GetUserNameA(username.data(), &actualSize))
 		{
-			throw std::runtime_error("Failed to GetUserName, error code: " + std::to_string(GetLastError()));
+			throw SyscallException("Failed to GetUserName()");
 		}
 
 		username.resize(actualSize);
