@@ -1,12 +1,10 @@
 #include <boost/beast.hpp>
-//#include <boost/beast/core.hpp>
-//#include <boost/beast/http.hpp>
-//#include <boost/beast/version.hpp>
+
+#include <iostream>
 
 #include "SpecterLib/UserInfo.hpp"
 #include "SpecterLib/SystemInfo.hpp"
 
-#include <iostream>
 
 void RegisterWithServer()
 {
@@ -18,9 +16,9 @@ void RegisterWithServer()
 	boost::asio::ip::tcp::socket socket(ioc);
 
 	// Define target
-	auto const host = "localhost";
-	auto const port = "8001";
-	auto const target = "/registration/";
+	const auto host = "localhost";
+	const auto port = "8001";
+	const auto target = "/registration/";
 
 	// Resolve and connect
 	boost::asio::connect(socket, resolver.resolve(host, port));
