@@ -2,15 +2,15 @@
 
 TEST(UserInfoTests, UsernameIsntEmpty)
 {
-	EXPECT_FALSE(UserInfo::GetUsername().empty());
+	EXPECT_FALSE(UserInfo::getUsername().empty());
 }
 
 TEST(UserInfoTests, UsernameIsntTooBig)
 {
-	EXPECT_LT(UserInfo::GetUsername().size(), UNLEN + 1);
+	EXPECT_LT(UserInfo::getUsername().size(), UNLEN + 1);
 }
 
 TEST(UserInfoTests, MachineNameIsntEmpty)
 {
-	EXPECT_FALSE(UserInfo::GetMachineName().empty());
+	EXPECT_FALSE(UserInfo::getMachineName().empty());
 }

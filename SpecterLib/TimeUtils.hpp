@@ -6,22 +6,22 @@ class TimeUtils
 public:
 	TimeUtils() = delete;
 
-	static std::string FormatDuration(std::chrono::milliseconds ms)
+	static std::string formatDuration(std::chrono::milliseconds ms)
 	{
 		using namespace std::chrono;
 		std::string result;
 
-		const auto elapsedDays = duration_cast<days>(ms);
-		result += std::to_string(elapsedDays.count()) + "d ";
-		ms -= elapsedDays;
+		const auto elapsed_days = duration_cast<days>(ms);
+		result += std::to_string(elapsed_days.count()) + "d ";
+		ms -= elapsed_days;
 
-		const auto elapsedHours = duration_cast<hours>(ms);
-		result += std::to_string(elapsedHours.count()) + "h ";
-		ms -= elapsedHours;
+		const auto elapsed_hours = duration_cast<hours>(ms);
+		result += std::to_string(elapsed_hours.count()) + "h ";
+		ms -= elapsed_hours;
 
-		const auto elapsedMinutes = duration_cast<minutes>(ms);
-		result += std::to_string(elapsedMinutes.count()) + "m ";
-		ms -= elapsedMinutes;
+		const auto elapsed_minutes = duration_cast<minutes>(ms);
+		result += std::to_string(elapsed_minutes.count()) + "m ";
+		ms -= elapsed_minutes;
 
 		return result + std::to_string(duration_cast<seconds>(ms).count()) + "s";
 	}

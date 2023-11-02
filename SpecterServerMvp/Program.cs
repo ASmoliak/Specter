@@ -40,7 +40,6 @@ static void SimpleListenerExample(string[] prefixes)
     listener.Start();
     Console.WriteLine("Listening...");
 
-    // Note: The GetContext method blocks while waiting for a request.
     while (true)
     {
         HttpListenerContext context = listener.GetContext();

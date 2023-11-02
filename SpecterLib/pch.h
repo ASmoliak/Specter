@@ -3,3 +3,5 @@
 #include <windows.h>
 
 #include <string>
+
+#include <boost/noncopyable.hpp>
