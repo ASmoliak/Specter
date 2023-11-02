@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            clientListView = new ListView();
             SuspendLayout();
             // 
-            // listView1
+            // clientListView
             // 
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(804, 453);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            clientListView.Location = new Point(12, 12);
+            clientListView.Name = "clientListView";
+            clientListView.Size = new Size(804, 453);
+            clientListView.TabIndex = 0;
+            clientListView.UseCompatibleStateImageBehavior = false;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(828, 477);
-            Controls.Add(listView1);
+            Controls.Add(clientListView);
             Name = "MainForm";
             Text = "Form1";
             Load += MainForm_Load;
@@ -53,6 +53,6 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView clientListView;
     }
 }

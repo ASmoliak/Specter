@@ -14,11 +14,25 @@ namespace SpecterServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            clientListView.View = View.Details;
+
+            // Initialize the Main Client List ListView
+            clientListView.Columns.Add("uuid", "UUID");
+            clientListView.Columns.Add("ipv4", "IPv4");
+            clientListView.Columns.Add("os", "OS");
+            clientListView.Columns.Add("username", "Username");
+            clientListView.Columns.Add("machineName", "Machine Name");
+            clientListView.Columns.Add("uptime", "Uptime");
+
+            clientListView.AllowColumnReorder = true;
+            clientListView.GridLines = true;
+
+            // Initialize the Listener
             m_listener = new Thread(StartServerLoop);
             m_listener.Start();
         }
 
-        private static void StartServerLoop()
+        private void StartServerLoop()
         {
             string[] prefixes = {"http://localhost:8001/registration/"};
 
@@ -39,26 +53,18 @@ namespace SpecterServer
             HttpListener listener = new HttpListener();
 
             // Add the prefixes.
-            foreach (string s in prefixes)
+            foreach (var s in prefixes)
             {
                 listener.Prefixes.Add(s);
             }
 
             listener.Start();
-            Console.WriteLine(@"Listening...");
 
             while (true)
             {
                 var context = listener.GetContext();
-                var request = context.Request;
 
-                Console.WriteLine($@"Received reg request from address: {request.UserHostAddress}");
-                if (request.Headers.Count > 0)
-                {
-                    PrintHeaderIfExists(request, "hdserial");
-                    PrintHeaderIfExists(request, "username");
-                    PrintHeaderIfExists(request, "computername");
-                }
+                UpdateOrAddEndpoint(context.Request);
 
                 var response = context.Response;
 
@@ -74,12 +80,64 @@ namespace SpecterServer
             //listener.Stop();
         }
 
-        private static void PrintHeaderIfExists(HttpListenerRequest request, string headerKey)
+        private void UpdateOrAddEndpoint(HttpListenerRequest request)
         {
-            if (request.Headers.AllKeys.Contains(headerKey))
+            if (!request.Headers.AllKeys.Contains("hdserial"))
             {
-                Console.WriteLine($@"{headerKey}: {request.Headers[headerKey]}");
+                return; // Request doesn't contain an hdserial, malformed request..
             }
+
+            var uuid = request.Headers["hdserial"];
+            if (uuid == null)
+            {
+                return; // Can't be null
+            }
+
+            clientListView.Invoke(() =>
+            {
+                // Your code to modify the ListView goes here
+                var existingItem = FindItemByUuid(uuid);
+                if (existingItem != null)
+                {
+                    // Update existing item
+                    existingItem.SubItems["ipv4"].Text = request.UserHostAddress;
+                    existingItem.SubItems["machinename"]!.Text = request.Headers["machinename"];
+                    existingItem.SubItems["username"]!.Text = request.Headers["username"];
+                    existingItem.SubItems["uptime"]!.Text = request.Headers["uptime"];
+                    existingItem.SubItems["os"]!.Text = request.Headers["osname"];
+                }
+                else
+                {
+                    // Add completely new item
+                    var newItem = new ListViewItem(uuid);
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "ipv4", Text = request.UserHostAddress });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "os", Text = request.Headers["osname"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "username", Text = request.Headers["username"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "machinename", Text = request.Headers["machinename"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "uptime", Text = request.Headers["uptime"] });
+                    clientListView.Items.Add(newItem);
+                }
+            });
         }
+        
+        private ListViewItem? FindItemByUuid(string uuid)
+        {
+            foreach (ListViewItem? item in clientListView.Items)
+            {
+                if (item?.Text == uuid)
+                {
+                    return item;
+                }
+            }
+            return null; // UUID not found
+        }
+
+        //private static void PrintHeaderIfExists(HttpListenerRequest request, string headerKey)
+        //{
+        //    if (request.Headers.AllKeys.Contains(headerKey))
+        //    {
+        //        Console.WriteLine($@"{headerKey}: {request.Headers[headerKey]}");
+        //    }
+        //}
     }
 }

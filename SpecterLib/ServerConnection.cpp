@@ -25,10 +25,10 @@ void ServerConnection::syncInfog(const std::string& hd_serial, const std::string
 		req.set(http::field::host, m_host);
 		req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 		req.set("hdserial", hd_serial);
-		req.set("computername", machine_name);
+		req.set("machinename", machine_name);
 		req.set("username", user_name);
 		req.set("uptime", up_time);
-		req.set("osName", os_name);
+		req.set("osname", os_name);
 
 		// Write, read and buffer the request
 		http::write(m_socket, req);
