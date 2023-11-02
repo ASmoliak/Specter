@@ -10,7 +10,7 @@ static void PrintHeaderIfExists(HttpListenerRequest request, string headerKey)
 {
     if (request.Headers.AllKeys.Contains(headerKey))
     {
-        Console.WriteLine($"{headerKey}: {request.Headers[headerKey]}");
+        Console.WriteLine($@"{headerKey}: {request.Headers[headerKey]}");
     }
 }
 
@@ -18,7 +18,7 @@ static void SimpleListenerExample(string[] prefixes)
 {
     if (!HttpListener.IsSupported)
     {
-        Console.WriteLine("Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
+        Console.WriteLine(@"Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
         return;
     }
 
@@ -38,15 +38,15 @@ static void SimpleListenerExample(string[] prefixes)
         listener.Prefixes.Add(s);
     }
     listener.Start();
-    Console.WriteLine("Listening...");
+    Console.WriteLine(@"Listening...");
 
     while (true)
     {
-        HttpListenerContext context = listener.GetContext();
+        var context = listener.GetContext();
 
-        HttpListenerRequest request = context.Request;
-        Console.WriteLine($"Received reg request from address: {request.UserHostAddress}");
+        var request = context.Request;
 
+        Console.WriteLine($@"Received reg request from address: {request.UserHostAddress}");
         if (request.Headers.Count > 0) 
         {
             PrintHeaderIfExists(request, "hdserial");
@@ -57,13 +57,13 @@ static void SimpleListenerExample(string[] prefixes)
         HttpListenerResponse response = context.Response;
 
         // Construct a response.
-        string responseString = "<HTML><BODY> Hello world!</BODY></HTML>";
-        byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-        // Get a response stream and write the response to it.
+        const string responseString = "<HTML><BODY> Hello world!</BODY></HTML>";
+        var buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
+        
         response.ContentLength64 = buffer.Length;
-        System.IO.Stream output = response.OutputStream;
+
+        var output = response.OutputStream;
         output.Write(buffer, 0, buffer.Length);
-        // You must close the output stream.
         output.Close();
     }
 

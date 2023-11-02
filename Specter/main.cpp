@@ -2,29 +2,24 @@
 #include <windows.h>
 #include <iostream>
 
+#include "SpecterLib/ServerConnection.hpp"
 #include "SpecterLib/UserInfo.hpp"
 #include "SpecterLib/SystemInfo.hpp"
-
-
-void PrintEndpointInfo()
-{
-	// User-info
-	std::cout << "Username: " << UserInfo::getUsername() << std::endl;
-
-	// System info
-	std::cout << "Computer name: " << UserInfo::getMachineName() << std::endl;
-	std::cout << "System uptime: " << SystemInfo::getUptime() << std::endl;
-	std::cout << "HdSerial: " << SystemInfo::getHdSerial() << std::endl;
-}
 
 int main()
 {
 	try
 	{
-		PrintEndpointInfo();
-		//RegisterWithServer();
+		ServerConnection connection;
 
-		return 0;
+		while(true)
+		{
+			connection.syncInfog(SystemInfo::getHdSerial(), UserInfo::getMachineName(),
+								 UserInfo::getUsername(), SystemInfo::getUptime(), 
+								 SystemInfo::getOsProductName());
+
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+		}
 	}
 	catch (const std::exception& e)
 	{
