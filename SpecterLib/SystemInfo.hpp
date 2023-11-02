@@ -25,8 +25,27 @@ public:
 		return std::to_string(volumeSerialNumber);
 	}
 
-	static std::string GetOsVersion()
+	static std::string GetOsProductName()
 	{
+		HKEY key;
+		if (ERROR_SUCCESS != RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", 0, KEY_READ, &key))
+		{
+			throw SyscallException("Failed to get OS product version via RegOpenKeyExW()");
+		}
 
+		DWORD sizeInBytes;
+		if (ERROR_SUCCESS != RegQueryValueExA(key, "ProductName", nullptr, nullptr, nullptr, &sizeInBytes))
+		{
+			RegCloseKey(key);
+			throw SyscallException("Failed to get ProductName length via RegQueryValueExA()");
+		}
+
+		std::string productName(sizeInBytes, 0);
+
+		RegQueryValueExA(key, "ProductName", nullptr, nullptr, reinterpret_cast<LPBYTE>(productName.data()), &sizeInBytes);
+		RegCloseKey(key);
+		productName.resize(sizeInBytes);
+
+		return productName;
 	}
 };
