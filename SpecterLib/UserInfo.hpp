@@ -1,5 +1,4 @@
 #pragma once
-#include <windows.h>
 #include <lmcons.h>
 #include <sysinfoapi.h>
 
@@ -10,7 +9,7 @@ class UserInfo
 public:
 	UserInfo() = delete;
 
-	static std::string GetQualifiedUsername()
+	static std::string GetMachineName()
 	{
 		DWORD actualSize = 0;
 		GetComputerNameExA(ComputerNameDnsFullyQualified, nullptr, &actualSize);
@@ -26,6 +25,7 @@ public:
 			throw SyscallException("GetComputerNameExA() failed");
 		}
 
+		qualifiedName.resize(actualSize + 1);
 		return qualifiedName;
 	}
 

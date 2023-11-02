@@ -1,6 +1,4 @@
 #pragma once
-#include <windows.h>
-
 #include "TimeUtils.hpp"
 #include "SyscallException.hpp"
 
@@ -9,7 +7,7 @@ class SystemInfo
 public:
 	SystemInfo() = delete;
 
-	static std::string GetSystemUptime()
+	static std::string GetUptime()
 	{
 		return TimeUtils::FormatDuration(std::chrono::milliseconds(GetTickCount64()));
 	}
@@ -25,5 +23,10 @@ public:
 		}
 
 		return std::to_string(volumeSerialNumber);
+	}
+
+	static std::string GetOsVersion()
+	{
+
 	}
 };
