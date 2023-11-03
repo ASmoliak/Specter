@@ -32,18 +32,24 @@
             tabPage1 = new TabPage();
             groupBox1 = new GroupBox();
             tabPage2 = new TabPage();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            textBox6 = new TextBox();
-            label6 = new Label();
+            textBox_machineName = new TextBox();
+            label_machineName = new Label();
+            label_operatingSystem = new Label();
+            textBox_operatingSystem = new TextBox();
+            textBox_cpu = new TextBox();
+            label_cpu = new Label();
+            textBox_ram = new TextBox();
+            label_ram = new Label();
+            textBox_ipAddress = new TextBox();
+            label_ipAddress = new Label();
+            textBox_country = new TextBox();
+            label_country = new Label();
+            label_machineType = new Label();
+            textBox_machineType = new TextBox();
+            textBox_uptime = new TextBox();
+            label_uptime = new Label();
+            textBox_uuid = new TextBox();
+            label_uuid = new Label();
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -56,7 +62,7 @@
             tabControl.Location = new Point(12, 12);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(372, 426);
+            tabControl.Size = new Size(372, 329);
             tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -65,28 +71,34 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(364, 398);
+            tabPage1.Size = new Size(364, 301);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Information";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox6);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(label_uuid);
+            groupBox1.Controls.Add(textBox_uuid);
+            groupBox1.Controls.Add(label_uptime);
+            groupBox1.Controls.Add(textBox_uptime);
+            groupBox1.Controls.Add(textBox_machineType);
+            groupBox1.Controls.Add(label_machineType);
+            groupBox1.Controls.Add(label_country);
+            groupBox1.Controls.Add(textBox_country);
+            groupBox1.Controls.Add(label_ipAddress);
+            groupBox1.Controls.Add(textBox_ipAddress);
+            groupBox1.Controls.Add(label_ram);
+            groupBox1.Controls.Add(textBox_ram);
+            groupBox1.Controls.Add(label_cpu);
+            groupBox1.Controls.Add(textBox_cpu);
+            groupBox1.Controls.Add(textBox_operatingSystem);
+            groupBox1.Controls.Add(label_operatingSystem);
+            groupBox1.Controls.Add(label_machineName);
+            groupBox1.Controls.Add(textBox_machineName);
             groupBox1.Location = new Point(6, 6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(352, 392);
+            groupBox1.Size = new Size(352, 291);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "General Information";
@@ -96,114 +108,172 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(768, 398);
+            tabPage2.Size = new Size(364, 314);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBox_machineName
             // 
-            textBox2.Location = new Point(113, 22);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 23);
-            textBox2.TabIndex = 2;
+            textBox_machineName.Location = new Point(113, 51);
+            textBox_machineName.Name = "textBox_machineName";
+            textBox_machineName.ReadOnly = true;
+            textBox_machineName.Size = new Size(233, 23);
+            textBox_machineName.TabIndex = 2;
             // 
-            // label1
+            // label_machineName
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(91, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Machine Name:";
+            label_machineName.AutoSize = true;
+            label_machineName.Location = new Point(16, 54);
+            label_machineName.Name = "label_machineName";
+            label_machineName.Size = new Size(91, 15);
+            label_machineName.TabIndex = 3;
+            label_machineName.Text = "Machine Name:";
             // 
-            // label2
+            // label_operatingSystem
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 181);
-            label2.Name = "label2";
-            label2.Size = new Size(104, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Operating System:";
+            label_operatingSystem.AutoSize = true;
+            label_operatingSystem.Location = new Point(3, 170);
+            label_operatingSystem.Name = "label_operatingSystem";
+            label_operatingSystem.Size = new Size(104, 15);
+            label_operatingSystem.TabIndex = 4;
+            label_operatingSystem.Text = "Operating System:";
             // 
-            // textBox1
+            // textBox_operatingSystem
             // 
-            textBox1.Location = new Point(113, 178);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 23);
-            textBox1.TabIndex = 5;
+            textBox_operatingSystem.Location = new Point(113, 167);
+            textBox_operatingSystem.Name = "textBox_operatingSystem";
+            textBox_operatingSystem.ReadOnly = true;
+            textBox_operatingSystem.Size = new Size(233, 23);
+            textBox_operatingSystem.TabIndex = 5;
             // 
-            // textBox3
+            // textBox_cpu
             // 
-            textBox3.Location = new Point(113, 207);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(233, 23);
-            textBox3.TabIndex = 6;
+            textBox_cpu.Location = new Point(113, 196);
+            textBox_cpu.Name = "textBox_cpu";
+            textBox_cpu.ReadOnly = true;
+            textBox_cpu.Size = new Size(233, 23);
+            textBox_cpu.TabIndex = 6;
             // 
-            // label3
+            // label_cpu
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(71, 210);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 15);
-            label3.TabIndex = 7;
-            label3.Text = "CPU: ";
+            label_cpu.AutoSize = true;
+            label_cpu.Location = new Point(71, 199);
+            label_cpu.Name = "label_cpu";
+            label_cpu.Size = new Size(36, 15);
+            label_cpu.TabIndex = 7;
+            label_cpu.Text = "CPU: ";
             // 
-            // textBox4
+            // textBox_ram
             // 
-            textBox4.Location = new Point(113, 236);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(233, 23);
-            textBox4.TabIndex = 8;
+            textBox_ram.Location = new Point(113, 225);
+            textBox_ram.Name = "textBox_ram";
+            textBox_ram.ReadOnly = true;
+            textBox_ram.Size = new Size(233, 23);
+            textBox_ram.TabIndex = 8;
             // 
-            // label4
+            // label_ram
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(68, 239);
-            label4.Name = "label4";
-            label4.Size = new Size(39, 15);
-            label4.TabIndex = 9;
-            label4.Text = "RAM: ";
+            label_ram.AutoSize = true;
+            label_ram.Location = new Point(68, 228);
+            label_ram.Name = "label_ram";
+            label_ram.Size = new Size(39, 15);
+            label_ram.TabIndex = 9;
+            label_ram.Text = "RAM: ";
             // 
-            // textBox5
+            // textBox_ipAddress
             // 
-            textBox5.Location = new Point(113, 51);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(233, 23);
-            textBox5.TabIndex = 10;
+            textBox_ipAddress.Location = new Point(113, 109);
+            textBox_ipAddress.Name = "textBox_ipAddress";
+            textBox_ipAddress.ReadOnly = true;
+            textBox_ipAddress.Size = new Size(233, 23);
+            textBox_ipAddress.TabIndex = 10;
             // 
-            // label5
+            // label_ipAddress
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(39, 54);
-            label5.Name = "label5";
-            label5.Size = new Size(68, 15);
-            label5.TabIndex = 11;
-            label5.Text = "IP Address: ";
-            label5.Click += label5_Click;
+            label_ipAddress.AutoSize = true;
+            label_ipAddress.Location = new Point(39, 112);
+            label_ipAddress.Name = "label_ipAddress";
+            label_ipAddress.Size = new Size(68, 15);
+            label_ipAddress.TabIndex = 11;
+            label_ipAddress.Text = "IP Address: ";
+            label_ipAddress.Click += label5_Click;
             // 
-            // textBox6
+            // textBox_country
             // 
-            textBox6.Location = new Point(113, 80);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(233, 23);
-            textBox6.TabIndex = 12;
+            textBox_country.Location = new Point(113, 138);
+            textBox_country.Name = "textBox_country";
+            textBox_country.ReadOnly = true;
+            textBox_country.Size = new Size(233, 23);
+            textBox_country.TabIndex = 12;
             // 
-            // label6
+            // label_country
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(54, 83);
-            label6.Name = "label6";
-            label6.Size = new Size(53, 15);
-            label6.TabIndex = 13;
-            label6.Text = "Country:";
+            label_country.AutoSize = true;
+            label_country.Location = new Point(54, 141);
+            label_country.Name = "label_country";
+            label_country.Size = new Size(53, 15);
+            label_country.TabIndex = 13;
+            label_country.Text = "Country:";
+            // 
+            // label_machineType
+            // 
+            label_machineType.AutoSize = true;
+            label_machineType.Location = new Point(24, 83);
+            label_machineType.Name = "label_machineType";
+            label_machineType.Size = new Size(83, 15);
+            label_machineType.TabIndex = 14;
+            label_machineType.Text = "Machine Type:";
+            // 
+            // textBox_machineType
+            // 
+            textBox_machineType.Location = new Point(113, 80);
+            textBox_machineType.Name = "textBox_machineType";
+            textBox_machineType.ReadOnly = true;
+            textBox_machineType.Size = new Size(233, 23);
+            textBox_machineType.TabIndex = 15;
+            // 
+            // textBox_uptime
+            // 
+            textBox_uptime.Location = new Point(113, 254);
+            textBox_uptime.Name = "textBox_uptime";
+            textBox_uptime.ReadOnly = true;
+            textBox_uptime.Size = new Size(233, 23);
+            textBox_uptime.TabIndex = 16;
+            // 
+            // label_uptime
+            // 
+            label_uptime.AutoSize = true;
+            label_uptime.Location = new Point(17, 257);
+            label_uptime.Name = "label_uptime";
+            label_uptime.Size = new Size(90, 15);
+            label_uptime.TabIndex = 17;
+            label_uptime.Text = "System Uptime:";
+            // 
+            // textBox_uuid
+            // 
+            textBox_uuid.Location = new Point(113, 22);
+            textBox_uuid.Name = "textBox_uuid";
+            textBox_uuid.ReadOnly = true;
+            textBox_uuid.Size = new Size(233, 23);
+            textBox_uuid.TabIndex = 18;
+            // 
+            // label_uuid
+            // 
+            label_uuid.AutoSize = true;
+            label_uuid.Location = new Point(19, 25);
+            label_uuid.Name = "label_uuid";
+            label_uuid.Size = new Size(88, 15);
+            label_uuid.TabIndex = 19;
+            label_uuid.Text = "Endpoint UUID:";
             // 
             // EndpointForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 450);
+            ClientSize = new Size(396, 353);
             Controls.Add(tabControl);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "EndpointForm";
             Text = "EndpointForm";
             Load += EndpointForm_Load;
@@ -220,17 +290,23 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private GroupBox groupBox1;
-        private TextBox textBox1;
-        private Label label2;
-        private Label label1;
-        private TextBox textBox2;
-        private Label label6;
-        private TextBox textBox6;
-        private Label label5;
-        private TextBox textBox5;
-        private Label label4;
-        private TextBox textBox4;
-        private Label label3;
-        private TextBox textBox3;
+        private TextBox textBox_operatingSystem;
+        private Label label_operatingSystem;
+        private Label label_machineName;
+        private TextBox textBox_machineName;
+        private Label label_country;
+        private TextBox textBox_country;
+        private Label label_ipAddress;
+        private TextBox textBox_ipAddress;
+        private Label label_ram;
+        private TextBox textBox_ram;
+        private Label label_cpu;
+        private TextBox textBox_cpu;
+        private TextBox textBox_machineType;
+        private Label label_machineType;
+        private Label label_uptime;
+        private TextBox textBox_uptime;
+        private Label label_uuid;
+        private TextBox textBox_uuid;
     }
 }
