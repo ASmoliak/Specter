@@ -100,7 +100,7 @@ namespace SpecterServer
                 if (existingItem != null)
                 {
                     // Update existing item
-                    existingItem.SubItems["ipv4"].Text = request.UserHostAddress;
+                    existingItem.SubItems["ipv4"]!.Text = request.UserHostAddress;
                     existingItem.SubItems["machinename"]!.Text = request.Headers["machinename"];
                     existingItem.SubItems["username"]!.Text = request.Headers["username"];
                     existingItem.SubItems["uptime"]!.Text = request.Headers["uptime"];
@@ -110,11 +110,11 @@ namespace SpecterServer
                 {
                     // Add completely new item
                     var newItem = new ListViewItem(uuid);
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "ipv4", Text = request.UserHostAddress });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "os", Text = request.Headers["osname"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "username", Text = request.Headers["username"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "machinename", Text = request.Headers["machinename"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem() { Name = "uptime", Text = request.Headers["uptime"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = request.UserHostAddress });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = request.Headers["osname"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = request.Headers["username"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"machinename", Text = request.Headers["machinename"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uptime", Text = request.Headers["uptime"] });
                     clientListView.Items.Add(newItem);
                 }
             });
@@ -131,13 +131,5 @@ namespace SpecterServer
             }
             return null; // UUID not found
         }
-
-        //private static void PrintHeaderIfExists(HttpListenerRequest request, string headerKey)
-        //{
-        //    if (request.Headers.AllKeys.Contains(headerKey))
-        //    {
-        //        Console.WriteLine($@"{headerKey}: {request.Headers[headerKey]}");
-        //    }
-        //}
     }
 }
