@@ -15,5 +15,10 @@
         {
             Text = m_endpointUuid;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace SpecterServer
 
             var form = new EndpointForm(clientListView.SelectedItems[0].Text); // Example: passing the text of the selected item
 
-            form.Show();  // Open the new form
+            form.ShowDialog();  // Open the new form
         }
 
         private void StartServerLoop()
@@ -194,7 +194,8 @@ namespace SpecterServer
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test Message Box", "MyCaption", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
         }
     }
 }
