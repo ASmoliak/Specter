@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SpecterServer.Forms
+﻿namespace SpecterServer.Forms
 {
     public partial class EndpointForm : Form
     {
-        public EndpointForm()
+        private string m_endpointUuid;
+
+        public EndpointForm(string endpointUuid)
         {
+            m_endpointUuid = endpointUuid;
+
             InitializeComponent();
+        }
+
+        private void EndpointForm_Load(object sender, EventArgs e)
+        {
+            Text = m_endpointUuid;
         }
     }
 }

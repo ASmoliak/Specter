@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text;
+using SpecterServer.Forms;
 
 namespace SpecterServer
 {
@@ -23,9 +24,8 @@ namespace SpecterServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            clientListView.View = View.Details;
-
             // Initialize the Main Client List ListView
+            clientListView.View = View.Details;
             clientListView.Columns.Add("uuid_real", "", 0);
             clientListView.Columns.Add("uuid_virtual", "UUID", 100, HorizontalAlignment.Center, 0);
             clientListView.Columns.Add("ipv4", "IPv4", 100, HorizontalAlignment.Center, 0);
@@ -36,9 +36,9 @@ namespace SpecterServer
             clientListView.AllowColumnReorder = true;
             clientListView.GridLines = true;
             clientListView.FullRowSelect = true;
+            clientListView.ItemActivate += clientListView_ItemActivate;
 
             clientListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
             tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richLogBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
@@ -54,10 +54,21 @@ namespace SpecterServer
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
+        private void clientListView_ItemActivate(object? sender, EventArgs e)
+        {
+            if (clientListView.SelectedItems.Count <= 0)
+            {
+                return; // Ensure there's at least one item selected
+            }
+
+            var form = new EndpointForm(clientListView.SelectedItems[0].Text); // Example: passing the text of the selected item
+
+            form.Show();  // Open the new form
+        }
 
         private void StartServerLoop()
         {
-            string[] prefixes = {"http://localhost:8001/registration/"};
+            string[] prefixes = { "http://localhost:8001/registration/" };
 
             if (!HttpListener.IsSupported)
             {
@@ -135,12 +146,12 @@ namespace SpecterServer
                 {
                     // Add completely new item
                     var newItem = new ListViewItem(uuid);
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uuid_virtual", Text = uuid});
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"ipv4", Text = request.UserHostAddress});
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"os", Text = request.Headers["osname"]});
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"username", Text = request.Headers["username"]});
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"machinename", Text = request.Headers["machinename"]});
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uptime", Text = request.Headers["uptime"]});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = uuid });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = request.UserHostAddress });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = request.Headers["osname"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = request.Headers["username"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"machinename", Text = request.Headers["machinename"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uptime", Text = request.Headers["uptime"] });
                     clientListView.Items.Add(newItem);
 
                     LogText(LogSeverity.Information, $"Added a client row for UUID: {uuid}");
