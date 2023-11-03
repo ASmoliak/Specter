@@ -11,9 +11,6 @@
     <Filter Include="Source Files\Comms">
       <UniqueIdentifier>{17857f59-8a76-41e9-beb9-fd45effe40f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Threads">
-      <UniqueIdentifier>{9f6cde64-f129-4c29-a7a9-d9049015468a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

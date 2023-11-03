@@ -28,14 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            tabControl = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
             clientListView = new ListView();
+            tabControl.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
+            // 
+            // tabControl
+            // 
+            tabControl.Controls.Add(tabPage1);
+            tabControl.Controls.Add(tabPage2);
+            tabControl.Location = new Point(12, 12);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(804, 453);
+            tabControl.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(clientListView);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(796, 425);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Clients";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(796, 425);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Logs";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // clientListView
             // 
-            clientListView.Location = new Point(12, 12);
+            clientListView.Location = new Point(6, 6);
             clientListView.Name = "clientListView";
-            clientListView.Size = new Size(804, 453);
+            clientListView.Size = new Size(784, 413);
             clientListView.TabIndex = 0;
             clientListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -44,15 +80,19 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(828, 477);
-            Controls.Add(clientListView);
+            Controls.Add(tabControl);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Specter C&C Server";
             Load += MainForm_Load;
+            tabControl.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
+        private TabControl tabControl;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
         private ListView clientListView;
     }
 }

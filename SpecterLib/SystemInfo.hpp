@@ -14,8 +14,6 @@ public:
 
 	static std::string getHdSerial()
 	{
-		// TODO this implementation takes the Volume serial number which is easy to change, 
-		// it doesn't acquire the Hard Disk serial number, which is hardcoded.
 		DWORD volume_serial_number;
 		if (!GetVolumeInformationW(L"C:\\", nullptr, 0, &volume_serial_number, nullptr, nullptr, nullptr, 0))
 		{

@@ -17,15 +17,19 @@ namespace SpecterServer
             clientListView.View = View.Details;
 
             // Initialize the Main Client List ListView
-            clientListView.Columns.Add("uuid", "UUID");
-            clientListView.Columns.Add("ipv4", "IPv4");
-            clientListView.Columns.Add("os", "OS");
-            clientListView.Columns.Add("username", "Username");
-            clientListView.Columns.Add("machineName", "Machine Name");
-            clientListView.Columns.Add("uptime", "Uptime");
-
+            clientListView.Columns.Add("uuid_real", "", 0);
+            clientListView.Columns.Add("uuid_virtual", "UUID", 100, HorizontalAlignment.Center, 0);
+            clientListView.Columns.Add("ipv4", "IPv4", 100, HorizontalAlignment.Center, 0);
+            clientListView.Columns.Add("os", "OS", 100, HorizontalAlignment.Center, 0);
+            clientListView.Columns.Add("username", "Username", 100, HorizontalAlignment.Center, 0);
+            clientListView.Columns.Add("machineName", "Machine Name", 100, HorizontalAlignment.Center, 0);
+            clientListView.Columns.Add("uptime", "Uptime", 100, HorizontalAlignment.Center, 0);
             clientListView.AllowColumnReorder = true;
             clientListView.GridLines = true;
+            clientListView.FullRowSelect = true;
+            clientListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             // Initialize the Listener
             m_listener = new Thread(StartServerLoop);
@@ -34,7 +38,7 @@ namespace SpecterServer
 
         private void StartServerLoop()
         {
-            string[] prefixes = {"http://localhost:8001/registration/"};
+            string[] prefixes = { "http://localhost:8001/registration/" };
 
             if (!HttpListener.IsSupported)
             {
@@ -110,6 +114,7 @@ namespace SpecterServer
                 {
                     // Add completely new item
                     var newItem = new ListViewItem(uuid);
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = uuid });
                     newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = request.UserHostAddress });
                     newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = request.Headers["osname"] });
                     newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = request.Headers["username"] });
@@ -119,7 +124,7 @@ namespace SpecterServer
                 }
             });
         }
-        
+
         private ListViewItem? FindItemByUuid(string uuid)
         {
             foreach (ListViewItem? item in clientListView.Items)
