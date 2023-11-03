@@ -7,6 +7,15 @@ namespace SpecterServer
     {
         private Thread? m_listener;
 
+        private enum LogSeverity
+        {
+            Trace,
+            Debug,
+            Information,
+            Warning,
+            Error
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -27,18 +36,28 @@ namespace SpecterServer
             clientListView.AllowColumnReorder = true;
             clientListView.GridLines = true;
             clientListView.FullRowSelect = true;
+
             clientListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            richLogBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            FormClosing += MainForm_FormClosing;
 
             // Initialize the Listener
             m_listener = new Thread(StartServerLoop);
             m_listener.Start();
         }
 
+        private static void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
+
         private void StartServerLoop()
         {
-            string[] prefixes = { "http://localhost:8001/registration/" };
+            string[] prefixes = {"http://localhost:8001/registration/"};
 
             if (!HttpListener.IsSupported)
             {
@@ -109,18 +128,22 @@ namespace SpecterServer
                     existingItem.SubItems["username"]!.Text = request.Headers["username"];
                     existingItem.SubItems["uptime"]!.Text = request.Headers["uptime"];
                     existingItem.SubItems["os"]!.Text = request.Headers["osname"];
+
+                    LogText(LogSeverity.Information, $"Updated an existing Client Row for UUID: {uuid}");
                 }
                 else
                 {
                     // Add completely new item
                     var newItem = new ListViewItem(uuid);
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = uuid });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = request.UserHostAddress });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = request.Headers["osname"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = request.Headers["username"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"machinename", Text = request.Headers["machinename"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uptime", Text = request.Headers["uptime"] });
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uuid_virtual", Text = uuid});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"ipv4", Text = request.UserHostAddress});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"os", Text = request.Headers["osname"]});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"username", Text = request.Headers["username"]});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"machinename", Text = request.Headers["machinename"]});
+                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uptime", Text = request.Headers["uptime"]});
                     clientListView.Items.Add(newItem);
+
+                    LogText(LogSeverity.Information, $"Added a client row for UUID: {uuid}");
                 }
             });
         }
@@ -134,7 +157,33 @@ namespace SpecterServer
                     return item;
                 }
             }
+
             return null; // UUID not found
+        }
+
+        private void LogText(LogSeverity severity, string message)
+        {
+            if (richLogBox.InvokeRequired)
+            {
+                richLogBox.Invoke(() =>
+                {
+                    richLogBox.AppendText($@"[{severity}][{DateTime.Now}] {message}" + Environment.NewLine);
+                });
+            }
+            else
+            {
+                richLogBox.AppendText($@"[{severity}][{DateTime.Now}] {message}" + Environment.NewLine);
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test Message Box", "MyCaption", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
