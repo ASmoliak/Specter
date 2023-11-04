@@ -9,6 +9,7 @@
     <StartupObject>SpecterServer.Program</StartupObject>
     <ApplicationIcon>Resources\specter.ico</ApplicationIcon>
     <AppDesignerFolder>Resources</AppDesignerFolder>
+    <BaseOutputPath>..\output\</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
