@@ -5,46 +5,47 @@ namespace SpecterServer.Source
 {
     public class Listener
     {
-        private Thread? m_listener;
+        private readonly Thread m_listenerThread;
+        private readonly HttpListener m_listener = new();
 
         public Listener()
         {
-            m_listener = new Thread(StartServerLoop);
-            m_listener.Start();
-        }
-
-        private void StartServerLoop()
-        {
             string[] prefixes = { "http://localhost:8001/registration/" };
 
-            if (!HttpListener.IsSupported)
-            {
-                throw new ArgumentException(@"Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
-            }
-
-            // URI prefixes are required,
-            // for example "http://127.0.0.1:8080/index/".
+            // URI prefixes are required
             if (prefixes == null || prefixes.Length == 0)
             {
                 throw new ArgumentException("prefixes are empty");
             }
 
-            // Create a listener.
-            HttpListener listener = new HttpListener();
-
-            // Add the prefixes.
             foreach (var s in prefixes)
             {
-                listener.Prefixes.Add(s);
+                m_listener.Prefixes.Add(s);
             }
 
-            listener.Start();
+            m_listener.Start();
 
+            m_listenerThread = new Thread(StartServerLoop);
+            m_listenerThread.Start();
+        }
+        
+        private void StartServerLoop()
+        {
             while (true)
             {
-                var context = listener.GetContext();
+                var context = m_listener.GetContext();
 
-                //UpdateOrAddEndpoint(context.Request);
+                if (!context.Request.Headers.AllKeys.Contains("hdserial"))
+                {
+                    // TODO send status code to fuck off? how do we do that?
+                    continue;
+                }
+
+                var args = new ClientEventArgs(context.Request.Headers["hdserial"]!, context.Request.UserHostAddress,
+                                               context.Request.Headers["osname"], context.Request.Headers["machinename"], 
+                                               context.Request.Headers["username"], context.Request.Headers["uptime"]);
+
+                OnClientConnected(args);
 
                 var response = context.Response;
 
@@ -56,8 +57,12 @@ namespace SpecterServer.Source
                 output.Write(buffer, 0, buffer.Length);
                 output.Close();
             }
+        }
 
-            //listener.Stop();
+        public event EventHandler<ClientEventArgs>? ClientConnected;
+        protected virtual void OnClientConnected(ClientEventArgs e)
+        {
+            ClientConnected?.Invoke(this, e);
         }
     }
 }

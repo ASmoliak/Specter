@@ -6,7 +6,7 @@ namespace SpecterServer
 {
     public partial class MainForm : Form
     {
-        private Listener m_listener;
+        private Listener? m_listener;
 
         private enum LogSeverity
         {
@@ -45,67 +45,50 @@ namespace SpecterServer
             FormClosing += MainForm_FormClosing;
 
             m_listener = new Listener();
+            m_listener.ClientConnected += UpdateListViewMethod;
         }
 
-        private static void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
+        private void UpdateListViewMethod(object? sender, ClientEventArgs data)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            if (clientListView.InvokeRequired)
+            {
+                clientListView.Invoke(() => UpdateOrAddEndpoint(data));
+            }
+            else
+            {
+                UpdateOrAddEndpoint(data);
+            }
         }
 
-        private void clientListView_ItemActivate(object? sender, EventArgs e)
+        private void UpdateOrAddEndpoint(ClientEventArgs newClientEvent)
         {
-            if (clientListView.SelectedItems.Count <= 0)
+            // Your code to modify the ListView goes here
+            var existingItem = FindItemByUuid(newClientEvent.Uuid);
+            if (existingItem != null)
             {
-                return;
+                // Update existing item
+                existingItem.SubItems["ipv4"]!.Text = newClientEvent.UserHostAddress;
+                existingItem.SubItems["machinename"]!.Text = newClientEvent.MachineName;
+                existingItem.SubItems["username"]!.Text = newClientEvent.Username;
+                existingItem.SubItems["uptime"]!.Text = newClientEvent.Uptime;
+                existingItem.SubItems["os"]!.Text = newClientEvent.OperatingSystem;
+
+                LogText(LogSeverity.Information, $"Updated an existing Client Row for UUID: {newClientEvent.Uuid}");
             }
-
-            var form = new EndpointForm(clientListView.SelectedItems[0].Text);
-            form.ShowDialog();
-        }
-
-        private void UpdateOrAddEndpoint(HttpListenerRequest request)
-        {
-            if (!request.Headers.AllKeys.Contains("hdserial"))
+            else
             {
-                return; // Request doesn't contain an hdserial, malformed request..
+                // Add completely new item
+                var newItem = new ListViewItem(newClientEvent.Uuid);
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uuid_virtual", Text = newClientEvent.Uuid });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"ipv4", Text = newClientEvent.UserHostAddress});
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"os", Text = newClientEvent.OperatingSystem});
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"username", Text = newClientEvent.Username});
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"machinename", Text = newClientEvent.MachineName});
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uptime", Text = newClientEvent.Uptime});
+                clientListView.Items.Add(newItem);
+
+                LogText(LogSeverity.Information, $"Added a client row for UUID: {newClientEvent.Uuid}");
             }
-
-            var uuid = request.Headers["hdserial"];
-            if (uuid == null)
-            {
-                return; // Can't be null
-            }
-
-            clientListView.Invoke(() =>
-            {
-                // Your code to modify the ListView goes here
-                var existingItem = FindItemByUuid(uuid);
-                if (existingItem != null)
-                {
-                    // Update existing item
-                    existingItem.SubItems["ipv4"]!.Text = request.UserHostAddress;
-                    existingItem.SubItems["machinename"]!.Text = request.Headers["machinename"];
-                    existingItem.SubItems["username"]!.Text = request.Headers["username"];
-                    existingItem.SubItems["uptime"]!.Text = request.Headers["uptime"];
-                    existingItem.SubItems["os"]!.Text = request.Headers["osname"];
-
-                    LogText(LogSeverity.Information, $"Updated an existing Client Row for UUID: {uuid}");
-                }
-                else
-                {
-                    // Add completely new item
-                    var newItem = new ListViewItem(uuid);
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = uuid });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = request.UserHostAddress });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = request.Headers["osname"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = request.Headers["username"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"machinename", Text = request.Headers["machinename"] });
-                    newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uptime", Text = request.Headers["uptime"] });
-                    clientListView.Items.Add(newItem);
-
-                    LogText(LogSeverity.Information, $"Added a client row for UUID: {uuid}");
-                }
-            });
         }
 
         private ListViewItem? FindItemByUuid(string uuid)
@@ -119,6 +102,19 @@ namespace SpecterServer
             }
 
             return null; // UUID not found
+        }
+
+        private static void MainForm_FormClosing(object? sender, FormClosingEventArgs e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+        private void clientListView_ItemActivate(object? sender, EventArgs e)
+        {
+            if (clientListView.SelectedItems.Count <= 0)
+            {
+                return;
+            }
+
+            var form = new EndpointForm(clientListView.SelectedItems[0].Text);
+            form.ShowDialog();
         }
 
         private void LogText(LogSeverity severity, string message)
@@ -136,15 +132,8 @@ namespace SpecterServer
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
-        }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var aboutBox = new AboutBox();
-            aboutBox.ShowDialog();
-        }
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new AboutBox().ShowDialog();
     }
 }
