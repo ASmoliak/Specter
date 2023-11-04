@@ -46,7 +46,7 @@ namespace SpecterServer
 
             FormClosing += MainForm_FormClosing;
 
-            m_endpointManager.OnEndpointUpdated += info => clientListView.Invoke(()=> UpdateEndpointTable(info));
+            m_endpointManager.OnEndpointUpdated += info => clientListView.Invoke(() => UpdateEndpointTable(info));
 
             m_listener.Start();
         }
@@ -94,12 +94,12 @@ namespace SpecterServer
             {
                 // Add completely new item
                 var newItem = new ListViewItem(newClientEvent.Uuid);
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uuid_virtual", Text = newClientEvent.Uuid });
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"ipv4", Text = newClientEvent.UserHostAddress});
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"os", Text = newClientEvent.OperatingSystem});
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"username", Text = newClientEvent.Username});
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"machinename", Text = newClientEvent.MachineName});
-                newItem.SubItems.Add(new ListViewItem.ListViewSubItem {Name = @"uptime", Text = newClientEvent.Uptime});
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = newClientEvent.Uuid });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = newClientEvent.UserHostAddress });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = newClientEvent.OperatingSystem });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = newClientEvent.Username });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"machinename", Text = newClientEvent.MachineName });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uptime", Text = newClientEvent.Uptime });
                 clientListView.Items.Add(newItem);
 
                 LogText(LogSeverity.Information, $"Added a client row for UUID: {newClientEvent.Uuid}");

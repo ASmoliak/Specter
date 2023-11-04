@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label_ipAddress = new Label();
             label_uuid = new Label();
             textBox_uuid = new TextBox();
             label_uptime = new Label();
@@ -46,7 +47,6 @@
             label_operatingSystem = new Label();
             label_machineName = new Label();
             textBox_machineName = new TextBox();
-            label_ipAddress = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,14 +77,23 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "General Information";
             // 
+            // label_ipAddress
+            // 
+            label_ipAddress.AutoSize = true;
+            label_ipAddress.Location = new Point(58, 112);
+            label_ipAddress.Name = "label_ipAddress";
+            label_ipAddress.Size = new Size(65, 15);
+            label_ipAddress.TabIndex = 20;
+            label_ipAddress.Text = "IP Address:";
+            // 
             // label_uuid
             // 
             label_uuid.AutoSize = true;
-            label_uuid.Location = new Point(16, 25);
+            label_uuid.Location = new Point(86, 25);
             label_uuid.Name = "label_uuid";
-            label_uuid.Size = new Size(109, 15);
+            label_uuid.Size = new Size(37, 15);
             label_uuid.TabIndex = 19;
-            label_uuid.Text = "EndpointInfo UUID:";
+            label_uuid.Text = "UUID:";
             // 
             // textBox_uuid
             // 
@@ -220,15 +229,6 @@
             textBox_machineName.ReadOnly = true;
             textBox_machineName.Size = new Size(237, 23);
             textBox_machineName.TabIndex = 2;
-            // 
-            // label_ipAddress
-            // 
-            label_ipAddress.AutoSize = true;
-            label_ipAddress.Location = new Point(58, 112);
-            label_ipAddress.Name = "label_ipAddress";
-            label_ipAddress.Size = new Size(65, 15);
-            label_ipAddress.TabIndex = 20;
-            label_ipAddress.Text = "IP Address:";
             // 
             // EndpointForm
             // 

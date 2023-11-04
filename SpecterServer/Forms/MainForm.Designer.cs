@@ -91,6 +91,7 @@
             richLogBox.BorderStyle = BorderStyle.FixedSingle;
             richLogBox.Location = new Point(6, 6);
             richLogBox.Name = "richLogBox";
+            richLogBox.ReadOnly = true;
             richLogBox.Size = new Size(709, 354);
             richLogBox.TabIndex = 0;
             richLogBox.Text = "";
