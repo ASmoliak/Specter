@@ -25,7 +25,7 @@ namespace SpecterServer.Forms
             textBox_machineType.Text = "N/A";
             textBox_operatingSystem.Text = m_endpointInfo.OperatingSystem;
             textBox_ram.Text = "N/A";
-            textBox_uptime.Text = "N/A";
+            textBox_uptime.Text = m_endpointInfo.Uptime;
         }
     }
 }

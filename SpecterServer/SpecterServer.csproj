@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <PackageReference Include="IP2Location.IPGeolocation" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

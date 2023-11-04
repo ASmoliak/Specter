@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 
-namespace SpecterServer.Source
+namespace SpecterServer.Source.Comms
 {
     public class Listener
     {
@@ -48,7 +48,7 @@ namespace SpecterServer.Source
                 }
 
                 var args = new EndpointInfo(context.Request.Headers["hdserial"]!, context.Request.UserHostAddress,
-                                               context.Request.Headers["osname"], context.Request.Headers["machinename"], 
+                                               context.Request.Headers["osname"], context.Request.Headers["machinename"],
                                                context.Request.Headers["username"], context.Request.Headers["uptime"]);
 
                 m_endpointManager.AddOrUpdateEndpoint(args);
