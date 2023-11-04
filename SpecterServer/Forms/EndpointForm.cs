@@ -1,24 +1,31 @@
-﻿namespace SpecterServer.Forms
+﻿using SpecterServer.Source;
+
+namespace SpecterServer.Forms
 {
     public partial class EndpointForm : Form
     {
-        private string m_endpointUuid;
+        private readonly EndpointInfo m_endpointInfo;
 
-        public EndpointForm(string endpointUuid)
+        public EndpointForm(EndpointInfo endpointInfo)
         {
-            m_endpointUuid = endpointUuid;
+            m_endpointInfo = endpointInfo;
 
             InitializeComponent();
         }
 
         private void EndpointForm_Load(object sender, EventArgs e)
         {
-            Text = m_endpointUuid;
-        }
+            Text = $@"Endpoint Info for {m_endpointInfo.UserHostAddress}";
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            textBox_uuid.Text = "N/A";
+            textBox_country.Text = "N/A";
+            textBox_cpu.Text = "N/A";
+            textBox_ipAddress.Text = m_endpointInfo.UserHostAddress;
+            textBox_machineName.Text = m_endpointInfo.MachineName;
+            textBox_machineType.Text = "N/A";
+            textBox_operatingSystem.Text = m_endpointInfo.OperatingSystem;
+            textBox_ram.Text = "N/A";
+            textBox_uptime.Text = "N/A";
         }
     }
 }

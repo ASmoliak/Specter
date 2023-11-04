@@ -7,8 +7,9 @@ namespace SpecterServer.Source
     {
         private readonly Thread m_listenerThread;
         private readonly HttpListener m_listener = new();
+        private readonly EndpointManager m_endpointManager;
 
-        public Listener()
+        public Listener(EndpointManager endpointManager)
         {
             string[] prefixes = { "http://localhost:8001/registration/" };
 
@@ -23,14 +24,19 @@ namespace SpecterServer.Source
                 m_listener.Prefixes.Add(s);
             }
 
-            m_listener.Start();
+            m_listenerThread = new Thread(ListenerLoop);
+            m_endpointManager = endpointManager;
+        }
 
-            m_listenerThread = new Thread(StartServerLoop);
+        public void Start()
+        {
             m_listenerThread.Start();
         }
-        
-        private void StartServerLoop()
+
+        private void ListenerLoop()
         {
+            m_listener.Start();
+
             while (true)
             {
                 var context = m_listener.GetContext();
@@ -41,11 +47,11 @@ namespace SpecterServer.Source
                     continue;
                 }
 
-                var args = new ClientEventArgs(context.Request.Headers["hdserial"]!, context.Request.UserHostAddress,
+                var args = new EndpointInfo(context.Request.Headers["hdserial"]!, context.Request.UserHostAddress,
                                                context.Request.Headers["osname"], context.Request.Headers["machinename"], 
                                                context.Request.Headers["username"], context.Request.Headers["uptime"]);
 
-                OnClientConnected(args);
+                m_endpointManager.AddOrUpdateEndpoint(args);
 
                 var response = context.Response;
 
@@ -57,12 +63,6 @@ namespace SpecterServer.Source
                 output.Write(buffer, 0, buffer.Length);
                 output.Close();
             }
-        }
-
-        public event EventHandler<ClientEventArgs>? ClientConnected;
-        protected virtual void OnClientConnected(ClientEventArgs e)
-        {
-            ClientConnected?.Invoke(this, e);
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System.Net;
-using SpecterServer.Forms;
+﻿using SpecterServer.Forms;
 using SpecterServer.Source;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SpecterServer
 {
     public partial class MainForm : Form
     {
-        private Listener? m_listener;
+        private readonly EndpointManager m_endpointManager = new();
+        private readonly Listener m_listener;
 
         private enum LogSeverity
         {
@@ -19,6 +20,7 @@ namespace SpecterServer
 
         public MainForm()
         {
+            m_listener = new Listener(m_endpointManager);
             InitializeComponent();
         }
 
@@ -44,24 +46,37 @@ namespace SpecterServer
 
             FormClosing += MainForm_FormClosing;
 
-            m_listener = new Listener();
-            m_listener.ClientConnected += UpdateListViewMethod;
+            m_endpointManager.OnEndpointUpdated += info => clientListView.Invoke(()=> UpdateEndpointTable(info));
+
+            m_listener.Start();
         }
 
-        private void UpdateListViewMethod(object? sender, ClientEventArgs data)
+        private void clientListView_ItemActivate(object? sender, EventArgs e)
         {
-            if (clientListView.InvokeRequired)
+            if (clientListView.SelectedItems.Count <= 0)
             {
-                clientListView.Invoke(() => UpdateOrAddEndpoint(data));
+                return;
             }
-            else
+
+            var desiredEndpointUuid = clientListView.SelectedItems[0].Text;
+            var endpointInfo = m_endpointManager.FindEndpoint(desiredEndpointUuid);
+            if (endpointInfo == null)
             {
-                UpdateOrAddEndpoint(data);
+                MessageBox.Show($@"Failed to open extended Endpoint Info, failed to find endpoint UUID {desiredEndpointUuid} in internal database",
+                                @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
             }
+
+            var form = new EndpointForm(endpointInfo);
+            form.ShowDialog();
         }
 
-        private void UpdateOrAddEndpoint(ClientEventArgs newClientEvent)
+        private static void MainForm_FormClosing(object? sender, FormClosingEventArgs e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+        private void UpdateEndpointTable(EndpointInfo newClientEvent)
         {
+
             // Your code to modify the ListView goes here
             var existingItem = FindItemByUuid(newClientEvent.Uuid);
             if (existingItem != null)
@@ -102,19 +117,6 @@ namespace SpecterServer
             }
 
             return null; // UUID not found
-        }
-
-        private static void MainForm_FormClosing(object? sender, FormClosingEventArgs e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
-
-        private void clientListView_ItemActivate(object? sender, EventArgs e)
-        {
-            if (clientListView.SelectedItems.Count <= 0)
-            {
-                return;
-            }
-
-            var form = new EndpointForm(clientListView.SelectedItems[0].Text);
-            form.ShowDialog();
         }
 
         private void LogText(LogSeverity severity, string message)

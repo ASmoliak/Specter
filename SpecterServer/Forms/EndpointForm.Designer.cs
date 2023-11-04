@@ -37,7 +37,6 @@
             label_machineType = new Label();
             label_country = new Label();
             textBox_country = new TextBox();
-            label_ipAddress = new Label();
             textBox_ipAddress = new TextBox();
             label_ram = new Label();
             textBox_ram = new TextBox();
@@ -47,11 +46,13 @@
             label_operatingSystem = new Label();
             label_machineName = new Label();
             textBox_machineName = new TextBox();
+            label_ipAddress = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label_ipAddress);
             groupBox1.Controls.Add(label_uuid);
             groupBox1.Controls.Add(textBox_uuid);
             groupBox1.Controls.Add(label_uptime);
@@ -60,7 +61,6 @@
             groupBox1.Controls.Add(label_machineType);
             groupBox1.Controls.Add(label_country);
             groupBox1.Controls.Add(textBox_country);
-            groupBox1.Controls.Add(label_ipAddress);
             groupBox1.Controls.Add(textBox_ipAddress);
             groupBox1.Controls.Add(label_ram);
             groupBox1.Controls.Add(textBox_ram);
@@ -80,24 +80,24 @@
             // label_uuid
             // 
             label_uuid.AutoSize = true;
-            label_uuid.Location = new Point(19, 25);
+            label_uuid.Location = new Point(16, 25);
             label_uuid.Name = "label_uuid";
-            label_uuid.Size = new Size(88, 15);
+            label_uuid.Size = new Size(109, 15);
             label_uuid.TabIndex = 19;
-            label_uuid.Text = "Endpoint UUID:";
+            label_uuid.Text = "EndpointInfo UUID:";
             // 
             // textBox_uuid
             // 
-            textBox_uuid.Location = new Point(113, 22);
+            textBox_uuid.Location = new Point(129, 22);
             textBox_uuid.Name = "textBox_uuid";
             textBox_uuid.ReadOnly = true;
-            textBox_uuid.Size = new Size(253, 23);
+            textBox_uuid.Size = new Size(237, 23);
             textBox_uuid.TabIndex = 18;
             // 
             // label_uptime
             // 
             label_uptime.AutoSize = true;
-            label_uptime.Location = new Point(17, 257);
+            label_uptime.Location = new Point(33, 257);
             label_uptime.Name = "label_uptime";
             label_uptime.Size = new Size(90, 15);
             label_uptime.TabIndex = 17;
@@ -105,24 +105,24 @@
             // 
             // textBox_uptime
             // 
-            textBox_uptime.Location = new Point(113, 254);
+            textBox_uptime.Location = new Point(129, 254);
             textBox_uptime.Name = "textBox_uptime";
             textBox_uptime.ReadOnly = true;
-            textBox_uptime.Size = new Size(253, 23);
+            textBox_uptime.Size = new Size(237, 23);
             textBox_uptime.TabIndex = 16;
             // 
             // textBox_machineType
             // 
-            textBox_machineType.Location = new Point(113, 80);
+            textBox_machineType.Location = new Point(129, 80);
             textBox_machineType.Name = "textBox_machineType";
             textBox_machineType.ReadOnly = true;
-            textBox_machineType.Size = new Size(253, 23);
+            textBox_machineType.Size = new Size(237, 23);
             textBox_machineType.TabIndex = 15;
             // 
             // label_machineType
             // 
             label_machineType.AutoSize = true;
-            label_machineType.Location = new Point(24, 83);
+            label_machineType.Location = new Point(40, 83);
             label_machineType.Name = "label_machineType";
             label_machineType.Size = new Size(83, 15);
             label_machineType.TabIndex = 14;
@@ -131,7 +131,7 @@
             // label_country
             // 
             label_country.AutoSize = true;
-            label_country.Location = new Point(54, 141);
+            label_country.Location = new Point(70, 141);
             label_country.Name = "label_country";
             label_country.Size = new Size(53, 15);
             label_country.TabIndex = 13;
@@ -139,34 +139,24 @@
             // 
             // textBox_country
             // 
-            textBox_country.Location = new Point(113, 138);
+            textBox_country.Location = new Point(129, 138);
             textBox_country.Name = "textBox_country";
             textBox_country.ReadOnly = true;
-            textBox_country.Size = new Size(253, 23);
+            textBox_country.Size = new Size(237, 23);
             textBox_country.TabIndex = 12;
-            // 
-            // label_ipAddress
-            // 
-            label_ipAddress.AutoSize = true;
-            label_ipAddress.Location = new Point(39, 112);
-            label_ipAddress.Name = "label_ipAddress";
-            label_ipAddress.Size = new Size(68, 15);
-            label_ipAddress.TabIndex = 11;
-            label_ipAddress.Text = "IP Address: ";
-            label_ipAddress.Click += label5_Click;
             // 
             // textBox_ipAddress
             // 
-            textBox_ipAddress.Location = new Point(113, 109);
+            textBox_ipAddress.Location = new Point(129, 109);
             textBox_ipAddress.Name = "textBox_ipAddress";
             textBox_ipAddress.ReadOnly = true;
-            textBox_ipAddress.Size = new Size(253, 23);
+            textBox_ipAddress.Size = new Size(237, 23);
             textBox_ipAddress.TabIndex = 10;
             // 
             // label_ram
             // 
             label_ram.AutoSize = true;
-            label_ram.Location = new Point(68, 228);
+            label_ram.Location = new Point(84, 228);
             label_ram.Name = "label_ram";
             label_ram.Size = new Size(39, 15);
             label_ram.TabIndex = 9;
@@ -174,16 +164,16 @@
             // 
             // textBox_ram
             // 
-            textBox_ram.Location = new Point(113, 225);
+            textBox_ram.Location = new Point(129, 225);
             textBox_ram.Name = "textBox_ram";
             textBox_ram.ReadOnly = true;
-            textBox_ram.Size = new Size(253, 23);
+            textBox_ram.Size = new Size(237, 23);
             textBox_ram.TabIndex = 8;
             // 
             // label_cpu
             // 
             label_cpu.AutoSize = true;
-            label_cpu.Location = new Point(71, 199);
+            label_cpu.Location = new Point(87, 199);
             label_cpu.Name = "label_cpu";
             label_cpu.Size = new Size(36, 15);
             label_cpu.TabIndex = 7;
@@ -191,24 +181,24 @@
             // 
             // textBox_cpu
             // 
-            textBox_cpu.Location = new Point(113, 196);
+            textBox_cpu.Location = new Point(129, 196);
             textBox_cpu.Name = "textBox_cpu";
             textBox_cpu.ReadOnly = true;
-            textBox_cpu.Size = new Size(253, 23);
+            textBox_cpu.Size = new Size(237, 23);
             textBox_cpu.TabIndex = 6;
             // 
             // textBox_operatingSystem
             // 
-            textBox_operatingSystem.Location = new Point(113, 167);
+            textBox_operatingSystem.Location = new Point(129, 167);
             textBox_operatingSystem.Name = "textBox_operatingSystem";
             textBox_operatingSystem.ReadOnly = true;
-            textBox_operatingSystem.Size = new Size(253, 23);
+            textBox_operatingSystem.Size = new Size(237, 23);
             textBox_operatingSystem.TabIndex = 5;
             // 
             // label_operatingSystem
             // 
             label_operatingSystem.AutoSize = true;
-            label_operatingSystem.Location = new Point(3, 170);
+            label_operatingSystem.Location = new Point(19, 170);
             label_operatingSystem.Name = "label_operatingSystem";
             label_operatingSystem.Size = new Size(104, 15);
             label_operatingSystem.TabIndex = 4;
@@ -217,7 +207,7 @@
             // label_machineName
             // 
             label_machineName.AutoSize = true;
-            label_machineName.Location = new Point(16, 54);
+            label_machineName.Location = new Point(32, 54);
             label_machineName.Name = "label_machineName";
             label_machineName.Size = new Size(91, 15);
             label_machineName.TabIndex = 3;
@@ -225,11 +215,20 @@
             // 
             // textBox_machineName
             // 
-            textBox_machineName.Location = new Point(113, 51);
+            textBox_machineName.Location = new Point(129, 51);
             textBox_machineName.Name = "textBox_machineName";
             textBox_machineName.ReadOnly = true;
-            textBox_machineName.Size = new Size(253, 23);
+            textBox_machineName.Size = new Size(237, 23);
             textBox_machineName.TabIndex = 2;
+            // 
+            // label_ipAddress
+            // 
+            label_ipAddress.AutoSize = true;
+            label_ipAddress.Location = new Point(58, 112);
+            label_ipAddress.Name = "label_ipAddress";
+            label_ipAddress.Size = new Size(65, 15);
+            label_ipAddress.TabIndex = 20;
+            label_ipAddress.Text = "IP Address:";
             // 
             // EndpointForm
             // 
@@ -254,7 +253,6 @@
         private TextBox textBox_machineName;
         private Label label_country;
         private TextBox textBox_country;
-        private Label label_ipAddress;
         private TextBox textBox_ipAddress;
         private Label label_ram;
         private TextBox textBox_ram;
@@ -266,5 +264,6 @@
         private TextBox textBox_uptime;
         private Label label_uuid;
         private TextBox textBox_uuid;
+        private Label label_ipAddress;
     }
 }
