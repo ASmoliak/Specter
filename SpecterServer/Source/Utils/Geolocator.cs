@@ -1,4 +1,5 @@
 ﻿using IP2Location;
+using System.IO.Compression;
 
 namespace SpecterServer.Source.Geolocator
 {
@@ -20,16 +21,23 @@ namespace SpecterServer.Source.Geolocator
 
             // GET https://download.ip2location.com/lite/IP2LOCATION-LITE-DB1.BIN.ZIP.md5
 
-            // Compare MD5s, if not equal,
+            // Compare MD5s, if not equal, updates available.
 
-            // Check here for updates: https://download.ip2location.com/lite/
+            // If choosing to download updates, store in resource or some memory place!
         }
 
         public void UpdateDatabase(string db_ip_filename)
         {
-            // FILENAME must be the BIN! must decompress here.
+            // FILENAME must be the bin.zip , so you must decompress here.
 
-            m_component.Open(db_ip_filename);
+            // use the zip decompressor 
+            ZipFile zipFile = ZipFile.Read(zippedFileStream);
+            
+            // then decompress to memory
+            MemoryStream reader = new();
+
+            // pass memory to the component
+            m_component.Open(reader);
         }
 
         public string TranslateIpToCountry(string ip)
