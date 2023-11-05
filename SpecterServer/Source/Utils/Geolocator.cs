@@ -1,18 +1,24 @@
-﻿using IP2Location;
-using System.IO.Compression;
+﻿using System.IO.Compression;
+using System.Reflection;
+using System.Xml.Linq;
+using IP2Location;
 
-namespace SpecterServer.Source.Geolocator
+namespace SpecterServer.Source.Utils
 {
-    class Geolocator
+    public class Geolocator
     {
         private readonly Component m_component = new();
-        private readonly string m_dbFileName;
-        
-        public Geolocator(string db_ip_filename)
-        {
-            // 
+        private const string DbBinFileName = "IP2LOCATION-LITE-DB1.BIN";
+        private const string DbZipFileName = $"{DbBinFileName}.ZIP";
 
-            UpdateDatabase(db_ip_filename);
+        public Geolocator()
+        {
+            EnsureDbOnDisk();
+
+            if (!LoadDatabase())
+            {
+
+            }
         }
 
         public void CheckForUpdates()
@@ -23,21 +29,44 @@ namespace SpecterServer.Source.Geolocator
 
             // Compare MD5s, if not equal, updates available.
 
-            // If choosing to download updates, store in resource or some memory place!
+            // If choosing to download updates, store in disk
         }
 
-        public void UpdateDatabase(string db_ip_filename)
+        private void EnsureDbOnDisk()
         {
-            // FILENAME must be the bin.zip , so you must decompress here.
+            FileInfo dbFileInfo = new(DbZipFileName);
+            if (dbFileInfo is {Exists: true, Length: > 0})
+            {
+                return;
+            }
 
-            // use the zip decompressor 
-            ZipFile zipFile = ZipFile.Read(zippedFileStream);
-            
-            // then decompress to memory
-            MemoryStream reader = new();
+            using FileStream fileStream = new(DbZipFileName, FileMode.Create, FileAccess.Write);
+            fileStream.Write(Resources.Resources.IP2LOCATION_LITE_DB1_BIN);
+        }
 
-            // pass memory to the component
-            m_component.Open(reader);
+        private bool LoadDatabase()
+        {
+            try
+            {
+                using var zipFile = ZipFile.Open(DbZipFileName, ZipArchiveMode.Read);
+
+                var ipDbFile = zipFile.GetEntry(DbBinFileName);
+                if (ipDbFile == null)
+                {
+                    return false;
+                }
+
+                using var entryStream = ipDbFile.Open();
+                MemoryStream memoryStream = new();
+                entryStream.CopyTo(memoryStream);
+
+                m_component.Open(memoryStream);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public string TranslateIpToCountry(string ip)
@@ -48,9 +77,3 @@ namespace SpecterServer.Source.Geolocator
         }
     }
 }
-
-//Geolocator geoloc = new("C:\\Users\\Alex\\Source\\Repos\\Specter\\SpecterServer\\Resources\\IP2LOCATION-LITE-DB1.BIN");
-//var res1 = geoloc.TranslateIpToCountry("8.8.8.8");
-//var res2 = geoloc.TranslateIpToCountry("11.22.33.44");
-//var res3 = geoloc.TranslateIpToCountry("192.168.1.1");
-//var res4 = geoloc.TranslateIpToCountry("127.0.0.1");

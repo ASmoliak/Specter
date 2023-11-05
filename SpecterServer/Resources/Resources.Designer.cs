@@ -59,5 +59,15 @@ namespace SpecterServer.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IP2LOCATION_LITE_DB1_BIN {
+            get {
+                object obj = ResourceManager.GetObject("IP2LOCATION_LITE_DB1_BIN", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

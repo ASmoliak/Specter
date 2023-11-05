@@ -137,6 +137,8 @@ namespace SpecterServer
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => System.Diagnostics.Process.GetCurrentProcess().Kill();
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => new AboutBox().ShowDialog();
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterUnitTests", "Specter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterLib", "SpecterLib\SpecterLib.vcxproj", "{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecterServerUnitTests", "SpecterServerTests\SpecterServerUnitTests.csproj", "{8776A247-F8AE-4670-8289-982E73A1F5EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,18 @@ Global
 		{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}.Release|x64.Build.0 = Release|x64
 		{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}.Release|x86.ActiveCfg = Release|Win32
 		{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}.Release|x86.Build.0 = Release|Win32
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|x64.Build.0 = Release|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{8776A247-F8AE-4670-8289-982E73A1F5EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +96,7 @@ Global
 		{6E65E97A-1347-4694-BEBB-DE6AA062AF7E} = {702E967C-3BB6-4A3D-A002-E770CAD12CA4}
 		{639A3C99-86B9-47D8-9E6B-9A46CDB87008} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
 		{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
+		{8776A247-F8AE-4670-8289-982E73A1F5EE} = {702E967C-3BB6-4A3D-A002-E770CAD12CA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {392E224E-4A61-4552-BC78-61D7E0B14629}
