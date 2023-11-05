@@ -46,6 +46,7 @@ namespace SpecterServer
             tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richLogBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
+            clientListView.ItemActivate += ClientListView_ItemActivate;
             FormClosing += MainForm_FormClosing;
 
             m_endpointManager.OnEndpointUpdated += info => clientListView.Invoke(() => UpdateEndpointTable(info));
@@ -53,7 +54,7 @@ namespace SpecterServer
             m_listener.Start();
         }
 
-        private void clientListView_ItemActivate(object? sender, EventArgs e)
+        private void ClientListView_ItemActivate(object? sender, EventArgs e)
         {
             if (clientListView.SelectedItems.Count <= 0)
             {

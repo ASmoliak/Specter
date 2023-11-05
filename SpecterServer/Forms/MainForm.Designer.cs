@@ -32,6 +32,13 @@
             tabControl = new TabControl();
             tabPage1 = new TabPage();
             clientListView = new ListView();
+            UUID_real = new ColumnHeader();
+            UUID_virtual = new ColumnHeader();
+            IPv4 = new ColumnHeader();
+            OS = new ColumnHeader();
+            Username = new ColumnHeader();
+            MachineName = new ColumnHeader();
+            uptime = new ColumnHeader();
             tabPage2 = new TabPage();
             richLogBox = new RichTextBox();
             menuStrip1 = new MenuStrip();
@@ -39,6 +46,7 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
+            Country = new ColumnHeader();
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -47,6 +55,7 @@
             // 
             // tabControl
             // 
+            tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl.Controls.Add(tabPage1);
             tabControl.Controls.Add(tabPage2);
             tabControl.Location = new Point(12, 27);
@@ -68,11 +77,58 @@
             // 
             // clientListView
             // 
+            clientListView.AllowColumnReorder = true;
+            clientListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            clientListView.Columns.AddRange(new ColumnHeader[] { UUID_real, UUID_virtual, Country, IPv4, OS, Username, MachineName, uptime });
+            clientListView.FullRowSelect = true;
+            clientListView.GridLines = true;
             clientListView.Location = new Point(6, 6);
             clientListView.Name = "clientListView";
             clientListView.Size = new Size(709, 354);
             clientListView.TabIndex = 0;
             clientListView.UseCompatibleStateImageBehavior = false;
+            clientListView.View = View.Details;
+            // 
+            // UUID_real
+            // 
+            UUID_real.Text = "";
+            UUID_real.Width = 0;
+            // 
+            // UUID_virtual
+            // 
+            UUID_virtual.Text = "UUID";
+            UUID_virtual.TextAlign = HorizontalAlignment.Center;
+            UUID_virtual.Width = 100;
+            // 
+            // IPv4
+            // 
+            IPv4.Text = "IPv4";
+            IPv4.TextAlign = HorizontalAlignment.Center;
+            IPv4.Width = 100;
+            // 
+            // OS
+            // 
+            OS.Text = "OS";
+            OS.TextAlign = HorizontalAlignment.Center;
+            OS.Width = 100;
+            // 
+            // Username
+            // 
+            Username.Text = "Username";
+            Username.TextAlign = HorizontalAlignment.Center;
+            Username.Width = 100;
+            // 
+            // MachineName
+            // 
+            MachineName.Text = "Machine Name";
+            MachineName.TextAlign = HorizontalAlignment.Center;
+            MachineName.Width = 100;
+            // 
+            // uptime
+            // 
+            uptime.Text = "Uptime";
+            uptime.TextAlign = HorizontalAlignment.Center;
+            uptime.Width = 100;
             // 
             // tabPage2
             // 
@@ -87,6 +143,7 @@
             // 
             // richLogBox
             // 
+            richLogBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richLogBox.BackColor = SystemColors.Window;
             richLogBox.BorderStyle = BorderStyle.FixedSingle;
             richLogBox.Location = new Point(6, 6);
@@ -104,6 +161,7 @@
             menuStrip1.Size = new Size(753, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // fileToolStripMenuItem
             // 
@@ -134,6 +192,11 @@
             aboutToolStripMenuItem.Size = new Size(107, 22);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            // 
+            // Country
+            // 
+            Country.Text = "Country";
+            Country.TextAlign = HorizontalAlignment.Center;
             // 
             // MainForm
             // 
@@ -167,5 +230,13 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
+        private ColumnHeader UUID_real;
+        private ColumnHeader UUID_virtual;
+        private ColumnHeader IPv4;
+        private ColumnHeader OS;
+        private ColumnHeader Username;
+        private ColumnHeader MachineName;
+        private ColumnHeader uptime;
+        private ColumnHeader Country;
     }
 }
