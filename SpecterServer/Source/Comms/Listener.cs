@@ -47,11 +47,7 @@ namespace SpecterServer.Source.Comms
                     continue;
                 }
 
-                var args = new EndpointInfo(context.Request.Headers["hdserial"]!, context.Request.UserHostAddress,
-                                               context.Request.Headers["osname"], context.Request.Headers["machinename"],
-                                               context.Request.Headers["username"], context.Request.Headers["uptime"]);
-
-                m_endpointManager.AddOrUpdateEndpoint(args);
+                m_endpointManager.AddOrUpdateEndpoint(context.Request);
 
                 var response = context.Response;
 

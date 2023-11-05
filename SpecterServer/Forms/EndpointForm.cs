@@ -18,7 +18,7 @@ namespace SpecterServer.Forms
             Text = $@"Endpoint Info for {m_endpointInfo.UserHostAddress}";
 
             textBox_uuid.Text = m_endpointInfo.Uuid;
-            textBox_country.Text = "N/A";
+            textBox_country.Text = m_endpointInfo.Country;
             textBox_cpu.Text = "N/A";
             textBox_ipAddress.Text = m_endpointInfo.UserHostAddress;
             textBox_machineName.Text = m_endpointInfo.MachineName;
