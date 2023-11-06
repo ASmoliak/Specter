@@ -16,24 +16,37 @@ namespace SpecterServer.Source.Utils
 
         public Geolocator()
         {
-            if (!EnsureLatestDbOnDisk())
+            if (new FileInfo(DbZipFileName) is not { Exists: true, Length: > 0 })
             {
                 DumpResourceDbToDisk();
             }
 
             if (!LoadDatabase())
             {
-                // If we fail to load the DB, we dump our in-memory resource copy as a fallback and try to load again
                 DumpResourceDbToDisk();
-                LoadDatabase();
+
+                if (!LoadDatabase())
+                {
+                    MessageBox.Show(@"Failed to load IP DB, geolocation services offline", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+
+            Task.Run(EnsureLatestDbOnDisk);
         }
 
-        private static bool EnsureLatestDbOnDisk()
+        private static void EnsureLatestDbOnDisk()
         {
-            if (HasLatestDb())
+            if (!HasLatestDb())
             {
-                return true;
+                return;
+            }
+
+            var choice = MessageBox.Show(@"Geolocation database has an update, download now?", @"IP-DB updates available",
+                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (choice == DialogResult.No)
+            {
+                return;
             }
 
             using HttpClient client = new();
@@ -42,12 +55,28 @@ namespace SpecterServer.Source.Utils
 
             if (!latestDb.IsCompletedSuccessfully)
             {
-                return false;
+                return;
             }
 
             using FileStream newDbStream = new(DbZipFileName, FileMode.OpenOrCreate, FileAccess.Write);
             newDbStream.Write(latestDb.Result);
-            return true;
+
+            choice = MessageBox.Show(@"Geolocation database successfully updated, restart now?", @"IP-DB updated",
+                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (choice == DialogResult.No)
+            {
+                return;
+            }
+
+            var startInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName,
+                UseShellExecute = true
+            };
+
+            System.Diagnostics.Process.Start(startInfo);
+            Environment.Exit(0);
         }
 
         private static bool HasLatestDb()
@@ -68,9 +97,9 @@ namespace SpecterServer.Source.Utils
                 return false;
             }
 
-            latestDbMd5.Wait(1000);
+            latestDbMd5.Wait();
 
-            return latestDbMd5.IsCompletedSuccessfully && latestDbMd5.Result[..32] != existingDbHash;
+            return latestDbMd5.IsCompletedSuccessfully && latestDbMd5.Result[..32] == existingDbHash;
         }
 
         static string Md5HashToString(byte[] hash)
