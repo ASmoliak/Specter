@@ -36,7 +36,7 @@ namespace SpecterServer.Source.Utils
 
         private static void EnsureLatestDbOnDisk()
         {
-            if (!HasLatestDb())
+            if (HasLatestDb())
             {
                 return;
             }
@@ -69,14 +69,7 @@ namespace SpecterServer.Source.Utils
                 return;
             }
 
-            var startInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName,
-                UseShellExecute = true
-            };
-
-            System.Diagnostics.Process.Start(startInfo);
-            Environment.Exit(0);
+            ApplicationUtils.RestartApplication();
         }
 
         private static bool HasLatestDb()
@@ -91,7 +84,7 @@ namespace SpecterServer.Source.Utils
 
             // Hash our existing current DB
             using FileStream existingDbStream = new(DbZipFileName, FileMode.Open, FileAccess.Read);
-            var existingDbHash = Md5HashToString(MD5.HashData(existingDbStream));
+            var existingDbHash = HashUtils.StreamToMd5(existingDbStream);
             if (existingDbHash.Length <= 0)
             {
                 return false;
@@ -100,19 +93,6 @@ namespace SpecterServer.Source.Utils
             latestDbMd5.Wait();
 
             return latestDbMd5.IsCompletedSuccessfully && latestDbMd5.Result[..32] == existingDbHash;
-        }
-
-        static string Md5HashToString(byte[] hash)
-        {
-            StringBuilder builder = new();
-
-            // Loop through each byte of the hashed hash and format each one as a lowercase hexadecimal string.
-            foreach (var element in hash)
-            {
-                builder.Append(element.ToString("x2"));
-            }
-
-            return builder.ToString();
         }
 
         private void DumpResourceDbToDisk()
