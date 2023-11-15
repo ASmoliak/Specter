@@ -28,24 +28,6 @@ namespace SpecterServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Initialize the Main Client List ListView
-            clientListView.View = View.Details;
-            clientListView.Columns.Add("uuid_real", "", 0);
-            clientListView.Columns.Add("uuid_virtual", "UUID", 100, HorizontalAlignment.Center, 0);
-            clientListView.Columns.Add("ipv4", "IPv4", 100, HorizontalAlignment.Center, 0);
-            clientListView.Columns.Add("os", "OS", 100, HorizontalAlignment.Center, 0);
-            clientListView.Columns.Add("username", "Username", 100, HorizontalAlignment.Center, 0);
-            clientListView.Columns.Add("machineName", "Machine Name", 100, HorizontalAlignment.Center, 0);
-            clientListView.Columns.Add("uptime", "Uptime", 100, HorizontalAlignment.Center, 0);
-            clientListView.AllowColumnReorder = true;
-            clientListView.GridLines = true;
-            clientListView.FullRowSelect = true;
-            clientListView.ItemActivate += clientListView_ItemActivate;
-
-            clientListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            richLogBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
             clientListView.ItemActivate += ClientListView_ItemActivate;
             FormClosing += MainForm_FormClosing;
 
@@ -79,13 +61,13 @@ namespace SpecterServer
 
         private void UpdateEndpointTable(EndpointInfo newClientEvent)
         {
-
             // Your code to modify the ListView goes here
             var existingItem = FindItemByUuid(newClientEvent.Uuid);
             if (existingItem != null)
             {
                 // Update existing item
                 existingItem.SubItems["ipv4"]!.Text = newClientEvent.UserHostAddress;
+                existingItem.SubItems["country"]!.Text = newClientEvent.Country;
                 existingItem.SubItems["machinename"]!.Text = newClientEvent.MachineName;
                 existingItem.SubItems["username"]!.Text = newClientEvent.Username;
                 existingItem.SubItems["uptime"]!.Text = newClientEvent.Uptime;
@@ -97,7 +79,9 @@ namespace SpecterServer
             {
                 // Add completely new item
                 var newItem = new ListViewItem(newClientEvent.Uuid);
+
                 newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"uuid_virtual", Text = newClientEvent.Uuid });
+                newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"country", Text = newClientEvent.Country });
                 newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"ipv4", Text = newClientEvent.UserHostAddress });
                 newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"os", Text = newClientEvent.OperatingSystem });
                 newItem.SubItems.Add(new ListViewItem.ListViewSubItem { Name = @"username", Text = newClientEvent.Username });
