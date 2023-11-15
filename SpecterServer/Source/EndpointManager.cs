@@ -14,7 +14,7 @@ namespace SpecterServer.Source
         public void AddOrUpdateEndpoint(HttpListenerRequest request)
         {
             var shortCountry = m_geolocator.IpToShortCountry(request.UserHostAddress);
-            var longCountry = m_geolocator.IpToLongCountry(request.UserHostAddress);
+            var longCountry = m_geolocator.IpToLongCountry("8.8.8.8");
 
             EndpointInfo args = new(request.Headers["hdserial"]!, request.UserHostAddress,
                                     request.Headers["osname"], request.Headers["machinename"],
