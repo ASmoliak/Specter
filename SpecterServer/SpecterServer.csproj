@@ -10,6 +10,10 @@
     <ApplicationIcon>Resources\specter.ico</ApplicationIcon>
     <AppDesignerFolder>Resources</AppDesignerFolder>
     <BaseOutputPath>..\output\</BaseOutputPath>
+    <Authors>Alexander Smoliak</Authors>
+    <Product>$(AssemblyName)</Product>
+    <NeutralLanguage>af-NA</NeutralLanguage>
+    <ApplicationManifest>Resources\app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
