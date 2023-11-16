@@ -197,9 +197,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:SpecterInstaller"
+        "ProductName" = "8:SpecterRAT"
         "ProductCode" = "8:{659C3F1C-E76E-41CC-842A-240C335FB4D0}"
-        "PackageCode" = "8:{1D081D80-935A-409F-8F4E-5DD4324D7EB1}"
+        "PackageCode" = "8:{58908DB7-D3BD-475B-BED0-401B9DA6D232}"
         "UpgradeCode" = "8:{E4976234-DCFE-47DC-88CC-159093C1FC38}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
