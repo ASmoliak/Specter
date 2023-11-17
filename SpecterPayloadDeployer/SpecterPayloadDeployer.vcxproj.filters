@@ -18,7 +18,7 @@
     <ClInclude Include="SpecterPayloadDeployer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SpecterInstallationStatus.hpp">
+    <ClInclude Include="SpecterUnprivilegedDeployment.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

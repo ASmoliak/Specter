@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SpecterInstallationStatus.hpp" />
+    <ClInclude Include="SpecterUnprivilegedDeployment.hpp" />
     <ClInclude Include="SpecterPayloadDeployer.h" />
   </ItemGroup>
   <ItemGroup>
