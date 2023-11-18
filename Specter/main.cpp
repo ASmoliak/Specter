@@ -14,9 +14,9 @@ int main()
 
 		while(true)
 		{
-			connection.syncInfog(SystemInfo::getHdSerial(), UserInfo::getMachineName(),
-								 UserInfo::getUsername(), SystemInfo::getUptime(), 
-								 SystemInfo::getOsProductName());
+			connection.syncInfog(SystemInfo::GetHdSerial(), UserInfo::GetMachineName(),
+								 UserInfo::GetUsername(), SystemInfo::GetUptime(), 
+								 SystemInfo::GetOsProductName());
 
 			std::this_thread::sleep_for(std::chrono::seconds(10));
 		}

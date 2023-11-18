@@ -16,6 +16,12 @@
     <ClCompile Include="SyscallExceptionTests.cpp">
       <Filter>Source\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="CommonPathsTests.cpp">
+      <Filter>Source\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="StrUtilsTests.cpp">
+      <Filter>Source\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
