@@ -33,9 +33,7 @@ public:
 
 		if (ERROR_SUCCESS != RegOpenKeyW(kTargetRegistryRoot, kTargetRegistry.c_str(), &result))
 		{
-			// Critical error, cannot install!
-
-			throw SyscallException("Failed to open the registry key: " + kTargetRegistry);
+			throw SyscallException(L"Failed to open the registry key: " + kTargetRegistry);
 		}
 
 

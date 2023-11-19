@@ -200,6 +200,7 @@
     </ClCompile>
     <ClCompile Include="ServerConnection.cpp" />
     <ClCompile Include="StrUtils.cpp" />
+    <ClCompile Include="SyscallException.cpp" />
     <ClCompile Include="SystemInfo.cpp" />
     <ClCompile Include="TimeUtils.cpp" />
     <ClCompile Include="UserInfo.cpp" />
