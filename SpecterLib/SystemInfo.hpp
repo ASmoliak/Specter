@@ -1,5 +1,5 @@
 #pragma once
-#include "TimeUtils.hpp"
+#include <string>
 
 class SystemInfo
 {

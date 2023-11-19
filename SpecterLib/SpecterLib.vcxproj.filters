@@ -22,9 +22,6 @@
     <ClCompile Include="CommonPaths.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="StrUtils.hpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="SystemInfo.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -32,6 +29,9 @@
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="TimeUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StrUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,6 +55,9 @@
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="SystemInfo.hpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StrUtils.hpp">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>

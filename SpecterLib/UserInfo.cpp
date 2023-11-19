@@ -1,8 +1,8 @@
+#include "pch.h"
 #include "UserInfo.hpp"
+#include "SyscallException.hpp"
 
 #include <lmcons.h>
-
-#include "SyscallException.hpp"
 
 std::string UserInfo::GetMachineName()
 {
@@ -14,7 +14,7 @@ std::string UserInfo::GetMachineName()
 		throw SyscallException("GetComputerNameExA() didn't fail with ERROR_MORE_DATA as expected");
 	}
 
-	std::string qualified_name(static_cast<uint64_t>(actual_size) + 1, 0);
+	std::string qualified_name(static_cast<size_t>(actual_size) + sizeof(char), 0);
 	if (!GetComputerNameExA(ComputerNameDnsFullyQualified, qualified_name.data(), &actual_size))
 	{
 		throw SyscallException("GetComputerNameExA() failed");

@@ -1,4 +1,6 @@
+#include "pch.h"
 #include "SystemInfo.hpp"
+#include "TimeUtils.hpp"
 #include "SyscallException.hpp"
 
 std::string SystemInfo::GetUptime()

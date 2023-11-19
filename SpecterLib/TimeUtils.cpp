@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "TimeUtils.hpp"
 
 std::string TimeUtils::FormatDuration(std::chrono::milliseconds ms)
