@@ -8,5 +8,6 @@ public:
 
 	static std::string Shorten(const std::wstring& wide_str);
 	static std::wstring Widen(const std::string& narrow_str);
+	static std::string BuildUuid();
 };
 

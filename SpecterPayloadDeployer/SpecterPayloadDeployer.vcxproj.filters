@@ -15,11 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SpecterPayloadDeployer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpecterUnprivilegedDeployment.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SpecterBasicDeployment.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

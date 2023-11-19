@@ -1,14 +1,6 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-#include "SpecterPayloadDeployer.h"
 
-bool ShouldInstall()
-{
-	// Determine if Specter exists on the system, if false, return True
-
-	// Check Specter version, if equals target version, return False, otherwise, return True
-	return false;
-}
 
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR lpCmdLine, int)
 {

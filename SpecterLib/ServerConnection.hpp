@@ -1,10 +1,9 @@
 #pragma once
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/ip/tcp.hpp>
-#include <boost/noncopyable.hpp>
 #include <string>
 
-class ServerConnection : boost::noncopyable
+class ServerConnection
 {
 	boost::asio::io_context m_ioc;
 	boost::asio::ip::tcp::resolver m_resolver;
@@ -15,6 +14,9 @@ class ServerConnection : boost::noncopyable
 	const std::string m_target = "/registration/";
 
 public:
+	ServerConnection(const ServerConnection& other) = delete;
+	ServerConnection& operator=(const ServerConnection& other) = delete;
+
 	ServerConnection();
 
 	void syncInfog(const std::string& hd_serial, const std::string& machine_name,

@@ -5,29 +5,32 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="SystemInfoTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
     <ClCompile Include="UserInfoTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
     <ClCompile Include="TimeUtilsTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
     <ClCompile Include="SyscallExceptionTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
     <ClCompile Include="CommonPathsTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
     <ClCompile Include="StrUtilsTests.cpp">
-      <Filter>Source\Tests</Filter>
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryKeyTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
       <UniqueIdentifier>{11c5d7c7-0496-424e-b494-e1e5573f1be7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Tests">
+    <Filter Include="Source\SpecterLibTests">
       <UniqueIdentifier>{b949917a-1377-4140-a6bb-276cf3cd704f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

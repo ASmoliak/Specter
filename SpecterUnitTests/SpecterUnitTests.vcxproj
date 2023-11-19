@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPathsTests.cpp" />
+    <ClCompile Include="RegistryKeyTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />
     <ClCompile Include="SyscallExceptionTests.cpp" />
     <ClCompile Include="SystemInfoTests.cpp" />

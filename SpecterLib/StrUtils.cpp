@@ -2,6 +2,10 @@
 #include "StrUtils.hpp"
 #include "SyscallException.hpp"
 
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/lexical_cast.hpp>
+
 std::wstring StrUtils::Widen(const std::string& narrow_str)
 {
 	const auto output_size = MultiByteToWideChar(CP_UTF8, 0, narrow_str.c_str(), static_cast<int>(narrow_str.size()), nullptr, 0);
@@ -30,4 +34,11 @@ std::string StrUtils::Shorten(const std::wstring& wide_str)
 	}
 
     return short_str;
+}
+
+std::string StrUtils::BuildUuid()
+{
+	const auto uuid = boost::uuids::random_generator()();
+
+	return boost::lexical_cast<std::string>(uuid);
 }
