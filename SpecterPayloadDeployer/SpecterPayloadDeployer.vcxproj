@@ -156,7 +156,8 @@
     <ClInclude Include="SpecterBasicDeployment.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SpecterPayloadDeployer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SpecterBasicDeployment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecterLib\SpecterLib.vcxproj">
