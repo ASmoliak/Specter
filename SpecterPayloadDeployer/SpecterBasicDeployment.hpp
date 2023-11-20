@@ -23,7 +23,7 @@ public:
 
 	bool IsInstalled() const;
 
-	static bool Install();
+	bool Install();
 
 private:
 	bool DoesRegistryEntryExist() const;
