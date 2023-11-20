@@ -319,34 +319,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7DC9587789F8439284FBCC2083F0EE50"
-            {
-            "Name" = "8:Specter UI"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_AD79AA20F37349CBADDAE31A6885A1CF"
-            "Folder" = "8:_5A661EA9C2C545DE9F550AD414E7CC9A"
-            "WorkingFolder" = "8:_555B9879C26D48FF95D5898FBF949FCE"
-            "Icon" = "8:_FDA73E8F021A4CD589886EB5FDD540FE"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C0A9C82177A141F98823A487B88AA694"
-            {
-            "Name" = "8:Specter UI"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_AD79AA20F37349CBADDAE31A6885A1CF"
-            "Folder" = "8:_52D92DEDEB5A4375A44BDBE597234096"
-            "WorkingFolder" = "8:_555B9879C26D48FF95D5898FBF949FCE"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {
