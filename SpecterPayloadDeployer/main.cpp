@@ -7,8 +7,8 @@
 
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 {
-	static constexpr std::wstring kProgramName = L"potato_master";
-	static constexpr std::wstring kProgramPath = kProgramName + L".exe";
+	static const std::wstring kProgramName = L"potato_master";
+	static const std::wstring kProgramPath = kProgramName + L".exe";
 
 	if (SelfProcessUtils::IsProcessElevated())
 	{
