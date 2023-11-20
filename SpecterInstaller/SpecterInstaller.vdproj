@@ -199,7 +199,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SpecterRAT"
         "ProductCode" = "8:{659C3F1C-E76E-41CC-842A-240C335FB4D0}"
-        "PackageCode" = "8:{58908DB7-D3BD-475B-BED0-401B9DA6D232}"
+        "PackageCode" = "8:{0794E321-E8CA-48F8-8FF9-3C0CD3610345}"
         "UpgradeCode" = "8:{E4976234-DCFE-47DC-88CC-159093C1FC38}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -319,6 +319,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_73FCAB467A024C49B8726C94EB6D1EF9"
+            {
+            "Name" = "8:Specter UI"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_AD79AA20F37349CBADDAE31A6885A1CF"
+            "Folder" = "8:_5A661EA9C2C545DE9F550AD414E7CC9A"
+            "WorkingFolder" = "8:_555B9879C26D48FF95D5898FBF949FCE"
+            "Icon" = "8:_FDA73E8F021A4CD589886EB5FDD540FE"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
