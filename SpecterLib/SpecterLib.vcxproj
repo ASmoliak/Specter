@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="CommonPaths.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SelfProcessUtils.hpp" />
     <ClInclude Include="ServerConnection.hpp" />
     <ClInclude Include="StrUtils.hpp" />
     <ClInclude Include="SyscallException.hpp" />
@@ -200,6 +201,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SelfProcessUtils.cpp" />
     <ClCompile Include="ServerConnection.cpp" />
     <ClCompile Include="StrUtils.cpp" />
     <ClCompile Include="SyscallException.cpp" />

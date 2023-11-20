@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPathsTests.cpp" />
+    <ClCompile Include="SelfProcessUtilsTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />
     <ClCompile Include="SyscallExceptionTests.cpp" />
     <ClCompile Include="SystemInfoTests.cpp" />
