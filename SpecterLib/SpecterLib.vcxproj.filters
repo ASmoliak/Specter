@@ -37,9 +37,6 @@
     <ClCompile Include="SyscallException.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="RegistryKey.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -64,9 +61,6 @@
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="StrUtils.hpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="RegistryKey.hpp">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>

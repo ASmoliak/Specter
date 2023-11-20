@@ -2,6 +2,8 @@
 #include "SystemInfo.hpp"
 #include "TimeUtils.hpp"
 #include "SyscallException.hpp"
+#include "StrUtils.hpp"
+#include "WinReg.hpp"
 
 std::string SystemInfo::GetUptime()
 {
@@ -21,24 +23,13 @@ std::string SystemInfo::GetHdSerial()
 
 std::string SystemInfo::GetOsProductName()
 {
-	HKEY key;
-	if (ERROR_SUCCESS != RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", 0, KEY_READ, &key))
+	try
 	{
-		throw SyscallException("Failed to get OS product version via RegOpenKeyExW()");
+		const winreg::RegKey key(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", KEY_READ);
+		return StrUtils::Shorten(key.GetStringValue(L"ProductName"));
 	}
-
-	DWORD size_in_bytes;
-	if (ERROR_SUCCESS != RegQueryValueExA(key, "ProductName", nullptr, nullptr, nullptr, &size_in_bytes))
+	catch (...)
 	{
-		RegCloseKey(key);
-		throw SyscallException("Failed to get ProductName length via RegQueryValueExA()");
+		return {};
 	}
-
-	std::string product_name(size_in_bytes, 0);
-
-	RegQueryValueExA(key, "ProductName", nullptr, nullptr, reinterpret_cast<LPBYTE>(product_name.data()), &size_in_bytes);
-	RegCloseKey(key);
-	product_name.resize(size_in_bytes);
-
-	return product_name;
 }
