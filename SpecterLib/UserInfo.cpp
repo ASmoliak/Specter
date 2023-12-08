@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "UserInfo.hpp"
-#include "SyscallException.hpp"
+#include "UserInfo.h"
+#include "SyscallException.h"
 
 #include <lmcons.h>
 

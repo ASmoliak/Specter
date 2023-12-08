@@ -1,6 +1,6 @@
 #include <lmcons.h>
 
-#include "SpecterLib/UserInfo.hpp"
+#include "SpecterLib/UserInfo.h"
 
 TEST(UserInfoTests, UsernameIsntEmpty)
 {

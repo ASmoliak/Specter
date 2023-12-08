@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "SelfProcessUtils.hpp"
+#include "SelfProcessUtils.h"
 
 bool SelfProcessUtils::IsProcessElevated()
 {

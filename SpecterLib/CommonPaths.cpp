@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "CommonPaths.hpp"
+#include "CommonPaths.h"
 
 #include <Shlobj.h>
 

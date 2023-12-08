@@ -11,6 +11,9 @@
     <Filter Include="Source Files\Comms">
       <UniqueIdentifier>{17857f59-8a76-41e9-beb9-fd45effe40f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\HandleWrapping">
+      <UniqueIdentifier>{31ca0e93-041b-4f46-9b4e-59407b778dbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -40,34 +43,43 @@
     <ClCompile Include="SelfProcessUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="HandleWrappers.h">
+      <Filter>Source Files\Utils\HandleWrapping</Filter>
+    </ClCompile>
+    <ClCompile Include="HandleWrappers.cpp">
+      <Filter>Source Files\Utils\HandleWrapping</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="SyscallException.hpp">
+    <ClInclude Include="SyscallException.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="TimeUtils.hpp">
+    <ClInclude Include="TimeUtils.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ServerConnection.hpp">
+    <ClInclude Include="ServerConnection.h">
       <Filter>Source Files\Comms</Filter>
     </ClInclude>
-    <ClInclude Include="CommonPaths.hpp">
+    <ClInclude Include="CommonPaths.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="UserInfo.hpp">
+    <ClInclude Include="UserInfo.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="SystemInfo.hpp">
+    <ClInclude Include="SystemInfo.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="StrUtils.hpp">
+    <ClInclude Include="StrUtils.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="SelfProcessUtils.hpp">
+    <ClInclude Include="SelfProcessUtils.h">
       <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="HandleTraits.h">
+      <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

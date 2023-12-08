@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "SyscallException.hpp"
-#include "StrUtils.hpp"
+#include "SyscallException.h"
+#include "StrUtils.h"
 
 SyscallException::SyscallException(const std::string& error_msg, DWORD error_code):
 	std::system_error(static_cast<int>(error_code), std::system_category(), error_msg + ", error")

@@ -2,9 +2,9 @@
 #include <windows.h>
 #include <iostream>
 
-#include "SpecterLib/ServerConnection.hpp"
-#include "SpecterLib/UserInfo.hpp"
-#include "SpecterLib/SystemInfo.hpp"
+#include "SpecterLib/ServerConnection.h"
+#include "SpecterLib/UserInfo.h"
+#include "SpecterLib/SystemInfo.h"
 
 int main()
 {

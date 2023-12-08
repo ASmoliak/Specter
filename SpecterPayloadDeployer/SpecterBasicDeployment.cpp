@@ -1,6 +1,6 @@
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/SyscallException.hpp"
-#include "SpecterLib/CommonPaths.hpp"
+#include "SpecterLib/SyscallException.h"
+#include "SpecterLib/CommonPaths.h"
 
 #include "3rdPartyLibs/WinReg/WinReg.hpp"
 

@@ -2,7 +2,7 @@
 #include <windows.h>
 
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/SelfProcessUtils.hpp"
+#include "SpecterLib/SelfProcessUtils.h"
 
 
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)

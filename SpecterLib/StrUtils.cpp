@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "StrUtils.hpp"
-#include "SyscallException.hpp"
+#include "StrUtils.h"
+#include "SyscallException.h"
 
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>

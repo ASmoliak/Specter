@@ -1,4 +1,4 @@
-#include "SpecterLib/CommonPaths.hpp"
+#include "SpecterLib/CommonPaths.h"
 
 TEST(CommonPathsTests, GetsNonEmptyLocalPath)
 {

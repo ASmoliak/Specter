@@ -183,18 +183,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CommonPaths.hpp" />
+    <ClInclude Include="CommonPaths.h" />
+    <ClInclude Include="HandleTraits.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="SelfProcessUtils.hpp" />
-    <ClInclude Include="ServerConnection.hpp" />
-    <ClInclude Include="StrUtils.hpp" />
-    <ClInclude Include="SyscallException.hpp" />
-    <ClInclude Include="SystemInfo.hpp" />
-    <ClInclude Include="TimeUtils.hpp" />
-    <ClInclude Include="UserInfo.hpp" />
+    <ClInclude Include="SelfProcessUtils.h" />
+    <ClInclude Include="ServerConnection.h" />
+    <ClInclude Include="StrUtils.h" />
+    <ClInclude Include="SyscallException.h" />
+    <ClInclude Include="SystemInfo.h" />
+    <ClInclude Include="TimeUtils.h" />
+    <ClInclude Include="UserInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPaths.cpp" />
+    <ClCompile Include="HandleWrappers.cpp" />
+    <ClCompile Include="HandleWrappers.h" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

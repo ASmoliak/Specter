@@ -1,8 +1,8 @@
 #include "pch.h"
-#include "SystemInfo.hpp"
-#include "TimeUtils.hpp"
-#include "SyscallException.hpp"
-#include "StrUtils.hpp"
+#include "SystemInfo.h"
+#include "TimeUtils.h"
+#include "SyscallException.h"
+#include "StrUtils.h"
 #include "WinReg.hpp"
 
 std::string SystemInfo::GetUptime()

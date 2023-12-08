@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "ServerConnection.hpp"
+#include "ServerConnection.h"
 #include <boost/beast.hpp>
 
 ServerConnection::ServerConnection() : m_resolver(m_ioc), m_socket(m_ioc)
