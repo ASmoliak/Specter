@@ -1,18 +1,17 @@
 #include "pch.h"
 #include "SelfProcessUtils.h"
+#include "AllHandleWrappers.h"
 
 bool SelfProcessUtils::IsProcessElevated()
 {
-	HANDLE token = nullptr;
-	if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token)) 
+	HTokenWrapper token;
+	if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.Put()) || !token.IsValid())
 	{
 		return false;
 	}
 
 	TOKEN_ELEVATION elevation{};
 	DWORD size;
-	GetTokenInformation(token, TokenElevation, &elevation, sizeof(elevation), &size);
-	CloseHandle(token);
-
+	GetTokenInformation(token.Get(), TokenElevation, &elevation, sizeof(elevation), &size);
 	return elevation.TokenIsElevated != 0;
 }

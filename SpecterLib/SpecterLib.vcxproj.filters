@@ -43,10 +43,10 @@
     <ClCompile Include="SelfProcessUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="HandleWrappers.h">
+    <ClCompile Include="BaseHandleWrapper.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
-    <ClCompile Include="HandleWrappers.cpp">
+    <ClCompile Include="AllHandleWrappers.cpp">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,7 +78,7 @@
     <ClInclude Include="SelfProcessUtils.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="HandleTraits.h">
+    <ClInclude Include="AllHandleWrappers.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClInclude>
   </ItemGroup>

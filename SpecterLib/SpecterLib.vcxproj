@@ -184,7 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CommonPaths.h" />
-    <ClInclude Include="HandleTraits.h" />
+    <ClInclude Include="AllHandleWrappers.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SelfProcessUtils.h" />
     <ClInclude Include="ServerConnection.h" />
@@ -195,14 +195,23 @@
     <ClInclude Include="UserInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseHandleWrapper.h">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="CommonPaths.cpp" />
-    <ClCompile Include="HandleWrappers.cpp" />
-    <ClCompile Include="HandleWrappers.h" />
+    <ClCompile Include="AllHandleWrappers.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</UseStandardPreprocessor>
+      <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</UseStandardPreprocessor>
+      <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</UseStandardPreprocessor>
+      <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</UseStandardPreprocessor>
     </ClCompile>
     <ClCompile Include="SelfProcessUtils.cpp" />
     <ClCompile Include="ServerConnection.cpp" />
