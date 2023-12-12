@@ -5,8 +5,8 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\Deployers">
-      <UniqueIdentifier>{0ed13b85-5582-4418-bd23-ac86c070b6a5}</UniqueIdentifier>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{95c22593-1e9b-4bd2-a499-f63f2c6bbff9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -14,12 +14,25 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpecterBasicDeployment.cpp">
-      <Filter>Source Files\Deployers</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SpecterBasicDeployment.hpp">
-      <Filter>Source Files\Deployers</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="SpecterBasicDeployment.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\output\Release\Win32\Specter.exe">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SpecterPayloadDeployer.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPathsTests.cpp" />
+    <ClCompile Include="ResourceUtilsTests.cpp" />
     <ClCompile Include="SelfProcessUtilsTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />
     <ClCompile Include="SyscallExceptionTests.cpp" />
@@ -166,6 +168,9 @@
     <ProjectReference Include="..\SpecterLib\SpecterLib.vcxproj">
       <Project>{9337466f-e5c0-4a60-83ba-b8bbf04fd7cf}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SpecterUnitTests.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

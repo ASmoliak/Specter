@@ -29,7 +29,6 @@ private:
 	bool DoesRegistryEntryExist() const;
 
 	bool DoesFileExist() const;
-};
 
-// TODO ShouldUpgrade = IsInstalled && IsOutdatedVersion
-// TODO what happens if the targetFileName isn't the one already installed? Need to flesh out the edge cases...
+	void DeployBinary();
+};

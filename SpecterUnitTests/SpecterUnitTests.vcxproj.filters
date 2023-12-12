@@ -25,6 +25,9 @@
     <ClCompile Include="SelfProcessUtilsTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceUtilsTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -33,13 +36,24 @@
     <Filter Include="Source\SpecterLibTests">
       <UniqueIdentifier>{b949917a-1377-4140-a6bb-276cf3cd704f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{ec7d8906-105b-428f-b3db-91187066f0af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SpecterUnitTests.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

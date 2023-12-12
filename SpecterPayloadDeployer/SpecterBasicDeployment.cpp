@@ -17,7 +17,8 @@ bool SpecterBasicDeployment::IsInstalled() const
 
 bool SpecterBasicDeployment::Install()
 {
-	// TODO WIP
+	//const winreg::RegKey key(HKEY_CURRENT_USER, kTargetRegistry);
+
 	return false;
 }
 

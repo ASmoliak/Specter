@@ -186,6 +186,7 @@
     <ClInclude Include="CommonPaths.h" />
     <ClInclude Include="AllHandleWrappers.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="ResourceUtils.h" />
     <ClInclude Include="SelfProcessUtils.h" />
     <ClInclude Include="ServerConnection.h" />
     <ClInclude Include="StrUtils.h" />
@@ -213,6 +214,7 @@
       <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</UseStandardPreprocessor>
       <UseStandardPreprocessor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</UseStandardPreprocessor>
     </ClCompile>
+    <ClCompile Include="ResourceUtils.cpp" />
     <ClCompile Include="SelfProcessUtils.cpp" />
     <ClCompile Include="ServerConnection.cpp" />
     <ClCompile Include="StrUtils.cpp" />

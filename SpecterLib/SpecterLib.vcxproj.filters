@@ -49,6 +49,9 @@
     <ClCompile Include="AllHandleWrappers.cpp">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -80,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="AllHandleWrappers.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceUtils.h">
+      <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
