@@ -1,9 +1,8 @@
 #include "SpecterBasicDeployment.hpp"
 #include "SpecterLib/SyscallException.h"
 #include "SpecterLib/CommonPaths.h"
-#include "SpecterLib/ResourceUtils.h"
 
-#include "3rdPartyLibs/WinReg/WinReg.hpp"
+#include <winreg/WinReg.hpp>
 
 SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name):
 	m_program_name(std::move(program_name)),

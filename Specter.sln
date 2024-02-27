@@ -31,9 +31,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E7EE4D4C-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executables", "Executables", "{AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd Party Libs", "3rd Party Libs", "{75DFD2B9-208D-4AA7-9EE0-EF35918B9BF6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildUtilities", "BuildUtilities", "{5312B8A5-93BF-4586-9002-F95F9D084539}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.build.props = Directory.build.props
+		vcpkg-configuration.json = vcpkg-configuration.json
+		vcpkg.json = vcpkg.json
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinReg", "3rdPartyLibs\WinReg\WinReg.vcxitems", "{76841BAC-7ED7-40AD-A8AD-8D152058EAFB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{51C1EEB9-4EE3-484D-92C3-AFC7D2D8B036}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		Specter.sln.DotSettings = Specter.sln.DotSettings
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,16 +136,9 @@ Global
 		{03AB686A-72C8-4AC9-9E95-174650F59691} = {AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}
 		{E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
 		{AE691DA1-7802-42D6-9E74-FCAB56FC8C2F} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
-		{75DFD2B9-208D-4AA7-9EE0-EF35918B9BF6} = {E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B}
-		{76841BAC-7ED7-40AD-A8AD-8D152058EAFB} = {75DFD2B9-208D-4AA7-9EE0-EF35918B9BF6}
+		{5312B8A5-93BF-4586-9002-F95F9D084539} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {392E224E-4A61-4552-BC78-61D7E0B14629}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		3rdPartyLibs\WinReg\WinReg.vcxitems*{03ab686a-72c8-4ac9-9e95-174650f59691}*SharedItemsImports = 4
-		3rdPartyLibs\WinReg\WinReg.vcxitems*{639a3c99-86b9-47d8-9e6b-9a46cdb87008}*SharedItemsImports = 4
-		3rdPartyLibs\WinReg\WinReg.vcxitems*{76841bac-7ed7-40ad-a8ad-8d152058eafb}*SharedItemsImports = 9
-		3rdPartyLibs\WinReg\WinReg.vcxitems*{9337466f-e5c0-4a60-83ba-b8bbf04fd7cf}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

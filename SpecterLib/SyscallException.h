@@ -1,7 +1,7 @@
 #pragma once
 #include <system_error>
 #include <string>
-
+#include <minwindef.h>
 // Use this when bad things happen after a Windows syscall.
 // Error codes will be converted to proper text
 class SyscallException : public std::system_error

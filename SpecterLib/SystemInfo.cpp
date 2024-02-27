@@ -3,7 +3,7 @@
 #include "TimeUtils.h"
 #include "SyscallException.h"
 #include "StrUtils.h"
-#include "WinReg.hpp"
+#include <winreg/WinReg.hpp>
 
 std::string SystemInfo::GetUptime()
 {
