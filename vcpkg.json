@@ -1,5 +1,13 @@
 {
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/buildsystems/vcpkg.schema.json",
+  "name": "specter",
+  "version": "0.1",
+  "description": "Specter is an open source RAT built for educational and showcasing purposes.",
+
   "dependencies": [
-    "winreg"
+    "winreg",
+    "boost-beast",
+    "boost-uuid",
+    "boost-lexical-cast"
   ]
 }

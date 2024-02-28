@@ -2,6 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ImportGroup Label="PropertySheets"/>
 	<PropertyGroup Label="UserMacros"/>
+	
+	<!-- Basics of a project -->
 	<PropertyGroup>
 		<OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)\</OutDir>
 		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
@@ -9,17 +11,23 @@
 		<PlatformToolset>v143</PlatformToolset>
 		<CharacterSet>Unicode</CharacterSet>
 	</PropertyGroup>
+	
+	<!-- This property group deals whether or not to use debug libraries -->
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
 		<UseDebugLibraries>false</UseDebugLibraries>
 	</PropertyGroup>
+	
+	<!-- Vcpkg properties, we want to enable the manifest, and we can also control if our packages are static and md as well -->
 	<PropertyGroup Label="Vcpkg">
 		<VcpkgEnableManifest>true</VcpkgEnableManifest>
 		<VcpkgUseStatic>true</VcpkgUseStatic>
 		<VcpkgUseMD>false</VcpkgUseMD>
 	</PropertyGroup>
+	
+	<!-- These items define the common build settings for our all C++ projects -->
 	<ItemDefinitionGroup>
 		<ClCompile>
 			<WarningLevel>Level4</WarningLevel>
@@ -34,6 +42,8 @@
 			<DisableAnalyzeExternal>true</DisableAnalyzeExternal>
 		</ClCompile>
 	</ItemDefinitionGroup>
+	
+	<!-- Linker and compile settings for Win32 Debug -->
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<ClCompile>
 			<PreprocessorDefinitions>_WIN32_WINNT=0x0601;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -43,6 +53,8 @@
 			<GenerateDebugInformation>true</GenerateDebugInformation>
 		</Link>
 	</ItemDefinitionGroup>
+	
+	<!-- Linker and compile settings for Win32 Release -->
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<ClCompile>
 			<PreprocessorDefinitions>_WIN32_WINNT=0x0601;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -54,6 +66,8 @@
 			<OptimizeReferences>true</OptimizeReferences>
 		</Link>
 	</ItemDefinitionGroup>
+	
+	<!-- Linker and compile settings for x64 Debug -->
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<ClCompile>
 			<PreprocessorDefinitions>_WIN32_WINNT=0x0601;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -63,6 +77,8 @@
 			<GenerateDebugInformation>true</GenerateDebugInformation>
 		</Link>
 	</ItemDefinitionGroup>
+	
+	<!-- Linker and compile settings for x64 Release -->
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<ClCompile>
 			<PreprocessorDefinitions>_WIN32_WINNT=0x0601;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
