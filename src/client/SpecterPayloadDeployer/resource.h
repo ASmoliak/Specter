@@ -2,7 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by SpecterPayloadDeployer.rc
 //
-#define IDR_RCDATA1                     101
+#define SPECTER_X86_BINARY                     101
 
 // Next default values for new objects
 // 

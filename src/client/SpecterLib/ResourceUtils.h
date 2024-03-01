@@ -1,11 +1,11 @@
 #pragma once
 #include <optional>
-#include <string>
+#include <vector>
 
 class ResourceUtils
 {
 public:
 	ResourceUtils() = delete;
 
-	static std::optional<std::string> ReadRawResource(int resource_id);
+	static std::optional<std::vector<char>> ReadRawResource(int resource_id);
 };

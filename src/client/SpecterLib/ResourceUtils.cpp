@@ -2,7 +2,7 @@
 #include "ResourceUtils.h"
 
 
-std::optional<std::string> ResourceUtils::ReadRawResource(int resource_id)
+std::optional<std::vector<char>> ResourceUtils::ReadRawResource(int resource_id)
 {
 	const auto resource_info = FindResourceW(nullptr, MAKEINTRESOURCEW(resource_id), RT_RCDATA);
 	if (!resource_info)
@@ -22,11 +22,11 @@ std::optional<std::string> ResourceUtils::ReadRawResource(int resource_id)
 		return {};
 	}
 
-	const auto* resource_ptr = LockResource(resource);
+	const char* resource_ptr = static_cast<char*>(LockResource(resource));
 	if (!resource_ptr)
 	{
 		return {};
 	}
 
-	return std::string(static_cast<const char*>(resource_ptr), resource_size);
+	return {{resource_ptr, resource_ptr + resource_size}};
 }

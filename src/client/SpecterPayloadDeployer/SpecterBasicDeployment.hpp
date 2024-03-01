@@ -34,7 +34,7 @@ private:
 
 	bool IsDeployedOnFilesystem() const;
 
-	bool DeployBinary();
+	bool DeployBinary() const;
 
 	bool EnablePersistence();
 

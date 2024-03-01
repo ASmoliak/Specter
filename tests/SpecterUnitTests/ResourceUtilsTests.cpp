@@ -12,5 +12,5 @@ TEST(ResourceUtilsTests, ReadsExistingResource)
 	const auto potential_resource_content = ResourceUtils::ReadRawResource(IDR_TEST_RESOURCE);
 
 	EXPECT_TRUE(potential_resource_content.has_value());
-	EXPECT_FALSE(potential_resource_content.value().empty());
+	EXPECT_FALSE(potential_resource_content->empty());
 }
