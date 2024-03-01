@@ -8,6 +8,7 @@
     "winreg",
     "boost-beast",
     "boost-uuid",
-    "boost-lexical-cast"
+    "boost-lexical-cast",
+    "gtest"
   ]
 }
