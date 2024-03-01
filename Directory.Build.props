@@ -15,8 +15,8 @@
 		<CharacterSet>Unicode</CharacterSet>
 
     <!-- C# Settings -->
-    <BaseOutputPath>$(SolutionDir)build\bin\$(MSBuildProjectName)</BaseOutputPath>
-    <BaseIntermediateOutputPath>$(SolutionDir)build\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(OutDir)</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(IntDir)</BaseIntermediateOutputPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
