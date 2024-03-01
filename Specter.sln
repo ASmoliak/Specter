@@ -3,47 +3,47 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Specter", "Specter\Specter.vcxproj", "{4271C0D6-153F-4FEB-9601-736FBCDE2A19}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Specter", "src\client\Specter\Specter.vcxproj", "{4271C0D6-153F-4FEB-9601-736FBCDE2A19}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{FDB2D535-1B33-4C44-A6A7-6503CB40A203}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{FDB2D535-1B33-4C44-A6A7-6503CB40A203}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{702E967C-3BB6-4A3D-A002-E770CAD12CA4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{702E967C-3BB6-4A3D-A002-E770CAD12CA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecterServer", "SpecterServer\SpecterServer.csproj", "{6E65E97A-1347-4694-BEBB-DE6AA062AF7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecterServer", "src\server\SpecterServer\SpecterServer.csproj", "{6E65E97A-1347-4694-BEBB-DE6AA062AF7E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterUnitTests", "SpecterUnitTests\SpecterUnitTests.vcxproj", "{639A3C99-86B9-47D8-9E6B-9A46CDB87008}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterUnitTests", "tests\SpecterUnitTests\SpecterUnitTests.vcxproj", "{639A3C99-86B9-47D8-9E6B-9A46CDB87008}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterLib", "SpecterLib\SpecterLib.vcxproj", "{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterLib", "src\client\SpecterLib\SpecterLib.vcxproj", "{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecterServerUnitTests", "SpecterServerTests\SpecterServerUnitTests.csproj", "{8776A247-F8AE-4670-8289-982E73A1F5EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecterServerUnitTests", "tests\SpecterServerTests\SpecterServerUnitTests.csproj", "{8776A247-F8AE-4670-8289-982E73A1F5EE}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SpecterInstaller", "SpecterInstaller\SpecterInstaller.vdproj", "{0E582087-4F6B-4695-B710-356870F45BA0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SpecterInstaller", "src\server\SpecterInstaller\SpecterInstaller.vdproj", "{0E582087-4F6B-4695-B710-356870F45BA0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{03AB686A-72C8-4AC9-9E95-174650F59691} = {03AB686A-72C8-4AC9-9E95-174650F59691}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterPayloadDeployer", "SpecterPayloadDeployer\SpecterPayloadDeployer.vcxproj", "{03AB686A-72C8-4AC9-9E95-174650F59691}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpecterPayloadDeployer", "src\client\SpecterPayloadDeployer\SpecterPayloadDeployer.vcxproj", "{03AB686A-72C8-4AC9-9E95-174650F59691}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4271C0D6-153F-4FEB-9601-736FBCDE2A19} = {4271C0D6-153F-4FEB-9601-736FBCDE2A19}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executables", "Executables", "{AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "executables", "executables", "{AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildUtilities", "BuildUtilities", "{5312B8A5-93BF-4586-9002-F95F9D084539}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{51C1EEB9-4EE3-484D-92C3-AFC7D2D8B036}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		Directory.build.props = Directory.build.props
+		LICENSE = LICENSE
+		Specter.sln.DotSettings = Specter.sln.DotSettings
 		vcpkg-configuration.json = vcpkg-configuration.json
 		vcpkg.json = vcpkg.json
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{51C1EEB9-4EE3-484D-92C3-AFC7D2D8B036}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-		LICENSE = LICENSE
-		Specter.sln.DotSettings = Specter.sln.DotSettings
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8B9799C1-C043-4752-880B-44D24EA4C73D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1A392AC-1728-4E9E-961A-1370A785842B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,15 +127,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4271C0D6-153F-4FEB-9601-736FBCDE2A19} = {AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}
+		{FDB2D535-1B33-4C44-A6A7-6503CB40A203} = {F1A392AC-1728-4E9E-961A-1370A785842B}
+		{702E967C-3BB6-4A3D-A002-E770CAD12CA4} = {F1A392AC-1728-4E9E-961A-1370A785842B}
 		{6E65E97A-1347-4694-BEBB-DE6AA062AF7E} = {702E967C-3BB6-4A3D-A002-E770CAD12CA4}
-		{639A3C99-86B9-47D8-9E6B-9A46CDB87008} = {AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}
+		{639A3C99-86B9-47D8-9E6B-9A46CDB87008} = {8B9799C1-C043-4752-880B-44D24EA4C73D}
 		{9337466F-E5C0-4A60-83BA-B8BBF04FD7CF} = {E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B}
-		{8776A247-F8AE-4670-8289-982E73A1F5EE} = {702E967C-3BB6-4A3D-A002-E770CAD12CA4}
+		{8776A247-F8AE-4670-8289-982E73A1F5EE} = {8B9799C1-C043-4752-880B-44D24EA4C73D}
 		{0E582087-4F6B-4695-B710-356870F45BA0} = {702E967C-3BB6-4A3D-A002-E770CAD12CA4}
 		{03AB686A-72C8-4AC9-9E95-174650F59691} = {AE691DA1-7802-42D6-9E74-FCAB56FC8C2F}
 		{E7EE4D4C-EC76-4F35-9CC8-8755778D6C7B} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
 		{AE691DA1-7802-42D6-9E74-FCAB56FC8C2F} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
-		{5312B8A5-93BF-4586-9002-F95F9D084539} = {FDB2D535-1B33-4C44-A6A7-6503CB40A203}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {392E224E-4A61-4552-BC78-61D7E0B14629}

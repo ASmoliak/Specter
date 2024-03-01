@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecterServer\SpecterServer.csproj" />
+    <ProjectReference Include="$(SolutionDir)\src\server\SpecterServer\SpecterServer.csproj" />
   </ItemGroup>
 
 </Project>

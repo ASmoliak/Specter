@@ -5,11 +5,17 @@
 	
 	<!-- Basics of a project -->
 	<PropertyGroup>
-		<OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)\</OutDir>
-		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <!-- Common Settings -->
+    <OutDir>$(SolutionDir)build\bin\$(Configuration)\$(Platform)\</OutDir>
+
+    <!-- C++ Settings -->
+		<IntDir>$(SolutionDir)build\obj\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</IntDir>
 		<GenerateManifest>false</GenerateManifest>
 		<PlatformToolset>v143</PlatformToolset>
 		<CharacterSet>Unicode</CharacterSet>
+
+    <!-- C# Settings -->
+    <BaseOutputPath>$(SolutionDir)build\obj\$(MSBuildProjectName)</BaseOutputPath>
 	</PropertyGroup>
 	
 	<!-- This property group deals whether or not to use debug libraries -->
@@ -34,7 +40,7 @@
 			<TreatWarningAsError>true</TreatWarningAsError>
 			<SDLCheck>true</SDLCheck>
 			<MultiProcessorCompilation>true</MultiProcessorCompilation>
-			<AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(SolutionDir)/src/client</AdditionalIncludeDirectories>
 			<LanguageStandard>stdcpp20</LanguageStandard>
 			<FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
 			<TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
