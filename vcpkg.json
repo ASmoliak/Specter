@@ -9,6 +9,8 @@
     "boost-beast",
     "boost-uuid",
     "boost-lexical-cast",
-    "gtest"
+    "boost-process",
+    "gtest",
+    "7zip"
   ]
 }

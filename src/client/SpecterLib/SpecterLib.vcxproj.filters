@@ -52,6 +52,9 @@
     <ClCompile Include="ResourceUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="ProcessUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -85,6 +88,12 @@
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClInclude>
     <ClInclude Include="ResourceUtils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CompressionUtils.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessUtils.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>

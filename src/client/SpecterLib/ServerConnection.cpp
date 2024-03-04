@@ -2,7 +2,11 @@
 #include "ServerConnection.h"
 #include <boost/beast.hpp>
 
-ServerConnection::ServerConnection() : m_resolver(m_ioc), m_socket(m_ioc)
+ServerConnection::ServerConnection(std::string base_endpoint, std::string port) :
+	m_resolver(m_ioc),
+	m_socket(m_ioc),
+	m_host(std::move(base_endpoint)),
+	m_port(std::move(port))
 {
 }
 

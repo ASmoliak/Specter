@@ -9,15 +9,15 @@ class ServerConnection
 	boost::asio::ip::tcp::resolver m_resolver;
 	boost::asio::ip::tcp::socket m_socket;
 
-	const std::string m_host = "localhost";
-	const std::string m_port = "8001";
+	const std::string m_host;
+	const std::string m_port;
 	const std::string m_target = "/registration/";
 
 public:
 	ServerConnection(const ServerConnection& other) = delete;
 	ServerConnection& operator=(const ServerConnection& other) = delete;
 
-	ServerConnection();
+	ServerConnection(std::string base_endpoint, std::string port);
 
 	void syncInfog(const std::string& hd_serial, const std::string& machine_name,
 	               const std::string& user_name, const std::string& up_time,

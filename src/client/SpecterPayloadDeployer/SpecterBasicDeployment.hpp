@@ -39,4 +39,6 @@ private:
 	bool EnablePersistence();
 
 	void DisablePersistence();
+
+	void RunBinary() const;
 };

