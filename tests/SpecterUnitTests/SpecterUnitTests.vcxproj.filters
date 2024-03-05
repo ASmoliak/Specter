@@ -28,6 +28,9 @@
     <ClCompile Include="ResourceUtilsTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="ApplicationMutexTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
