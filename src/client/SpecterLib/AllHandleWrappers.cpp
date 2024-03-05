@@ -23,3 +23,13 @@ void HMemTaskWrapper::ReleaseImp(wchar_t* handle)
 {
 	CoTaskMemFree(handle);
 }
+
+bool HMutexWrapper::IsValidImp(HANDLE handle)
+{
+	return handle != nullptr;
+}
+
+void HMutexWrapper::ReleaseImp(HANDLE handle)
+{
+	ReleaseMutex(handle);
+}

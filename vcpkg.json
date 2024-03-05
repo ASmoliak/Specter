@@ -10,6 +10,7 @@
     "boost-uuid",
     "boost-lexical-cast",
     "boost-process",
+    "boost-program-options",
     "gtest",
     "7zip"
   ]

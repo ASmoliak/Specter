@@ -132,6 +132,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ApplicationMutex.h" />
     <ClInclude Include="CommonPaths.h" />
     <ClInclude Include="AllHandleWrappers.h" />
     <ClInclude Include="CompressionUtils.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="UserInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ApplicationMutex.cpp" />
     <ClCompile Include="BaseHandleWrapper.h">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
