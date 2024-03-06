@@ -67,6 +67,12 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\PCH</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptography.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeUtils.h">
@@ -93,9 +99,6 @@
     <ClInclude Include="ResourceUtils.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="CompressionUtils.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="ApplicationMutex.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
@@ -111,5 +114,13 @@
     <ClInclude Include="pch.h">
       <Filter>Source Files\PCH</Filter>
     </ClInclude>
+    <ClInclude Include="Cryptography.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Algorithm.h">
+      <Filter>Source Files\Utils</Filter>
+    </None>
   </ItemGroup>
 </Project>

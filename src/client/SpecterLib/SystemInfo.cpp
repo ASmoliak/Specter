@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "SystemInfo.h"
 #include "TimeUtils.h"
 #include "SyscallException.h"

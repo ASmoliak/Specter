@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "SpecterLib/SelfProcessUtils.h"
 
 TEST(SelfProcessUtilsTests, DetectsElevation)

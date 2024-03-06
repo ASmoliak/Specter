@@ -31,6 +31,12 @@
     <ClCompile Include="ApplicationMutexTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="AlgorithmTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
+    <ClCompile Include="CryptographyTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">

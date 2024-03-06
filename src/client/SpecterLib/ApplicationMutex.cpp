@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "SpecterLib/ApplicationMutex.h"
 
 #include <stdexcept>

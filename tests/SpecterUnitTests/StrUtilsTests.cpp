@@ -35,13 +35,3 @@ TEST(StringUtilsTests, ShortenedStringReturnsToSameForm)
 
 	EXPECT_EQ(original, StrUtils::Widen(shortened));
 }
-
-TEST(StringUtilsTests, GeneratesNonEmptyUuid)
-{
-	EXPECT_FALSE(StrUtils::BuildUuid().empty());
-}
-
-TEST(StringUtilsTests, GeneratesRandomUuid)
-{
-	EXPECT_NE(StrUtils::BuildUuid(), StrUtils::BuildUuid());
-}

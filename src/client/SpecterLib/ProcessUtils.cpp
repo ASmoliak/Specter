@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "ProcessUtils.h"
 
 #include <boost/process/spawn.hpp>

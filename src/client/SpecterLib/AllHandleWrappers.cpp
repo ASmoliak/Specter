@@ -1,5 +1,4 @@
 // ReSharper disable CppParameterMayBeConstPtrOrRef
-#include "pch.h"
 #include "AllHandleWrappers.h"
 
 #include <Shlobj.h>

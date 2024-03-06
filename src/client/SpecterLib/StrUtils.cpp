@@ -1,10 +1,5 @@
-#include "pch.h"
 #include "StrUtils.h"
 #include "SyscallException.h"
-
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
-#include <boost/lexical_cast.hpp>
 
 std::wstring StrUtils::Widen(const std::string& narrow_str)
 {
@@ -25,20 +20,13 @@ std::string StrUtils::Shorten(const std::wstring& wide_str)
 {
 	const auto output_size = WideCharToMultiByte(CP_UTF8, 0, wide_str.c_str(), static_cast<int>(wide_str.size()), nullptr, 0, nullptr, nullptr);
 
-    std::string short_str(output_size, 0);
+	std::string short_str(output_size, 0);
 
-    const int actual_size = WideCharToMultiByte(CP_UTF8, 0, wide_str.c_str(), static_cast<int>(wide_str.size()), short_str.data(), output_size, nullptr, nullptr);
-    if (output_size != actual_size)
-    {
+	const int actual_size = WideCharToMultiByte(CP_UTF8, 0, wide_str.c_str(), static_cast<int>(wide_str.size()), short_str.data(), output_size, nullptr, nullptr);
+	if (output_size != actual_size)
+	{
 		throw SyscallException("Failed to convert wide string to multi-byte string, partial conversion");
 	}
 
-    return short_str;
-}
-
-std::string StrUtils::BuildUuid()
-{
-	const auto uuid = boost::uuids::random_generator()();
-
-	return boost::lexical_cast<std::string>(uuid);
+	return short_str;
 }

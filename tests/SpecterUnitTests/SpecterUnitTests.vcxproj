@@ -86,8 +86,10 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlgorithmTests.cpp" />
     <ClCompile Include="ApplicationMutexTests.cpp" />
     <ClCompile Include="CommonPathsTests.cpp" />
+    <ClCompile Include="CryptographyTests.cpp" />
     <ClCompile Include="ResourceUtilsTests.cpp" />
     <ClCompile Include="SelfProcessUtilsTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />
