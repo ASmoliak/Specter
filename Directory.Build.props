@@ -27,7 +27,8 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
 		<UseDebugLibraries>false</UseDebugLibraries>
-	</PropertyGroup>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
 	
 	<!-- Vcpkg properties, we want to enable the manifest, and we can also control if our packages are static and md as well -->
 	<PropertyGroup Label="Vcpkg">
@@ -75,7 +76,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <Optimization>MaxSpeed</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
