@@ -1,11 +1,11 @@
 #include "SpecterLib/Algorithm.h"
 
-TEST(AlgorithmTests, EncodesAndDecodesBase64)
+TEST(AlgorithmTests, EncodesDecodesBase64)
 {
-	const std::vector original = {'f', 'o', 'o'};
+	const std::vector<uint8_t> original = {0, 125, 255};
 	const auto encoded = Algorithm::EncodeBase64(original);
 
-	EXPECT_FALSE(std::equal(original.begin(), original.end(), encoded.begin(), encoded.end()));
+	EXPECT_FALSE(std::equal(original.begin(), original.end(), encoded.begin()));
 
 	const auto decoded = Algorithm::DecodeBase64(encoded);
 	EXPECT_EQ(decoded, original);

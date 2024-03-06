@@ -6,7 +6,7 @@
 
 using namespace boost::beast::detail;
 
-std::string Algorithm::EncodeBase64(const std::vector<char>& raw_content)
+std::string Algorithm::EncodeBase64(const std::vector<uint8_t>& raw_content)
 {
 	const auto encoded_size = base64::encoded_size(raw_content.size());
 
@@ -17,11 +17,11 @@ std::string Algorithm::EncodeBase64(const std::vector<char>& raw_content)
 	return base64;
 }
 
-std::vector<char> Algorithm::DecodeBase64(const std::string& base64)
+std::vector<uint8_t> Algorithm::DecodeBase64(const std::string& base64)
 {
 	const auto decoded_size = base64::decoded_size(base64.size());
 
-	std::vector<char> raw_content;
+	std::vector<uint8_t> raw_content;
 	raw_content.resize(decoded_size);
 	base64::decode(raw_content.data(), base64.data(), base64.size());
 
