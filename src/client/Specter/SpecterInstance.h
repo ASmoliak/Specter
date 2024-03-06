@@ -1,7 +1,7 @@
 #pragma once
-#include "InitialConfig.h"
-#include "SpecterLib/ServerConnection.h"
+#include "SpecterLib/InitialConfig.h"
 #include "SpecterLib/ApplicationMutex.h"
+#include "SpecterLib/ServerConnection.h"
 
 class SpecterInstance
 {

@@ -1,5 +1,6 @@
 #include "InitialConfig.h"
 
+#include <iostream>
 #include <shellapi.h>
 
 #include <boost/program_options.hpp>

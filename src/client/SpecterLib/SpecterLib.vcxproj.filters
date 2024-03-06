@@ -23,6 +23,9 @@
     <Filter Include="Source Files\PCH">
       <UniqueIdentifier>{971b6728-03a4-453e-82fb-155f949a465c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Configuration">
+      <UniqueIdentifier>{c4f5690e-df1c-48ec-b142-15753a9560e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerConnection.cpp">
@@ -73,6 +76,9 @@
     <ClCompile Include="Cryptography.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="InitialConfig.cpp">
+      <Filter>Source Files\Configuration</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeUtils.h">
@@ -116,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="Cryptography.h">
       <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="InitialConfig.h">
+      <Filter>Source Files\Configuration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

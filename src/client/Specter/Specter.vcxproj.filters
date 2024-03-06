@@ -13,9 +13,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InitialConfig.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SpecterInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -24,9 +21,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="InitialConfig.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="SpecterInstance.h">
       <Filter>Source Files</Filter>
     </ClInclude>

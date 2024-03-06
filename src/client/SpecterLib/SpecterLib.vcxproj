@@ -136,6 +136,7 @@
     <ClInclude Include="CommonPaths.h" />
     <ClInclude Include="AllHandleWrappers.h" />
     <ClInclude Include="Cryptography.h" />
+    <ClInclude Include="InitialConfig.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ProcessUtils.h" />
     <ClInclude Include="ResourceUtils.h" />
@@ -159,6 +160,7 @@
     <ClCompile Include="CommonPaths.cpp" />
     <ClCompile Include="AllHandleWrappers.cpp" />
     <ClCompile Include="Cryptography.cpp" />
+    <ClCompile Include="InitialConfig.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
