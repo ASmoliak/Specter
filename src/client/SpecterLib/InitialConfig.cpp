@@ -64,8 +64,14 @@ InitialConfig::InitialConfig(const std::vector<std::string>& args)
 
 		po::variables_map vm;
 
-		store(boost::program_options::command_line_parser(args).run(), vm);
+
+		/*basic_command_line_parser<charT>(argc, argv).options(desc).
+		                                             style(style).extra_parser(ext).run();*/
+
+		// TODO Fix the fucking parsing...
+		store(boost::program_options::command_line_parser(args).options(desc).style(0).run(), vm);
 		notify(vm);
+
 
 		if (!vm.contains(guid_option))
 		{

