@@ -17,12 +17,13 @@ class SpecterBasicDeployment
 	std::wstring m_program_name;
 	std::filesystem::path m_target_file;
 	winreg::RegKey m_reg_key;
+	std::wstring m_obscrypto_args;
 
 public:
 	SpecterBasicDeployment(const SpecterBasicDeployment& other) = delete;
 	SpecterBasicDeployment& operator=(const SpecterBasicDeployment& other) = delete;
 
-	SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name);
+	SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name, std::wstring obscrypto_args);
 
 	bool IsInstalled() const;
 

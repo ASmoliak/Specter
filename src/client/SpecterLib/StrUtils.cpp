@@ -30,3 +30,8 @@ std::string StrUtils::Shorten(const std::wstring& wide_str)
 
 	return short_str;
 }
+
+std::string StrUtils::FromBuffer(const std::vector<uint8_t>& binary)
+{
+	return {reinterpret_cast<const char*>(binary.data()), binary.size()};
+}

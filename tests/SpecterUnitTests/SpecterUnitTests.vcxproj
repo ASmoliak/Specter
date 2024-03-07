@@ -90,6 +90,7 @@
     <ClCompile Include="ApplicationMutexTests.cpp" />
     <ClCompile Include="CommonPathsTests.cpp" />
     <ClCompile Include="CryptographyTests.cpp" />
+    <ClCompile Include="ProcessUtilsTests.cpp" />
     <ClCompile Include="ResourceUtilsTests.cpp" />
     <ClCompile Include="SelfProcessUtilsTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />

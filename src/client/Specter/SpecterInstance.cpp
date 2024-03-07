@@ -8,9 +8,9 @@
 #include "SpecterLib/SystemInfo.h"
 #include "SpecterLib/UserInfo.h"
 
-SpecterInstance::SpecterInstance():
-	m_initial_config(GetCommandLineW()),
-	m_app_mutex(m_initial_config.GetInstanceGuid()),
+SpecterInstance::SpecterInstance(InitialConfig initial_config):
+	m_initial_config(std::move(initial_config)),
+	m_app_mutex(m_initial_config.GetGuid()),
 	m_server_connection(m_initial_config.GetServerEndpoint(), m_initial_config.GetServerPort())
 {
 	TryToAttachConsole();

@@ -37,6 +37,9 @@
     <ClCompile Include="CryptographyTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="ProcessUtilsTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
