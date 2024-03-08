@@ -6,7 +6,6 @@
 
 #include <boost/program_options.hpp>
 #include <boost/format.hpp>
-#include <boost/algorithm/string.hpp>
 
 #include "Cryptography.h"
 #include "StrUtils.h"
@@ -22,17 +21,16 @@ InitialConfig InitialConfig::FromObscryptoB64(const std::string& args)
 
 	const auto decrypted_bytes = Cryptography::Xor(decoded, key);
 
-	auto args_string = StrUtils::FromBuffer(decrypted_bytes);
+	const auto args_string = StrUtils::FromBuffer(decrypted_bytes);
 
-	std::vector<std::string> tokenized_args;
-	split(tokenized_args, args_string, boost::is_any_of("-"));
+	const auto args_vector = boost::program_options::split_winmain(args_string);
 
-	return {tokenized_args};
+	return {args_vector};
 }
 
 std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
 {
-	boost::format formatter("-%1% \"%2%\" -%3% %4% -%5% %6%");
+	boost::format formatter("--%1%=\"%2%\" --%3%=%4% --%5%=%6%");
 	formatter % server_url_option % m_server_url % server_port_option % m_server_port % guid_option % m_guid;
 
 	// Xor the args, and push the key into the start of the buffer so that we can decrypt it later
@@ -62,16 +60,11 @@ InitialConfig::InitialConfig(const std::vector<std::string>& args)
 			(server_port_option, po::value<std::string>()->default_value("8001"))
 			(guid_option, po::value<std::string>());
 
+		const auto parsed_options = po::command_line_parser(args).options(desc).run();
+
 		po::variables_map vm;
-
-
-		/*basic_command_line_parser<charT>(argc, argv).options(desc).
-		                                             style(style).extra_parser(ext).run();*/
-
-		// TODO Fix the fucking parsing...
-		store(boost::program_options::command_line_parser(args).options(desc).style(0).run(), vm);
+		store(parsed_options, vm);
 		notify(vm);
-
 
 		if (!vm.contains(guid_option))
 		{

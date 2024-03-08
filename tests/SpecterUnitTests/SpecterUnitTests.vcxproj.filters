@@ -40,6 +40,9 @@
     <ClCompile Include="ProcessUtilsTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="InitialConfigTests.cpp">
+      <Filter>Source\SpecterLibTests\Configuration</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -50,6 +53,9 @@
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{ec7d8906-105b-428f-b3db-91187066f0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SpecterLibTests\Configuration">
+      <UniqueIdentifier>{1f1e0a81-fcb3-4981-b397-27f9eee56e6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

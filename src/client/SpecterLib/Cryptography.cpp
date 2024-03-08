@@ -14,7 +14,7 @@ std::vector<uint8_t> Cryptography::Xor(const uint8_t* content, size_t size, uint
 {
 	std::vector<uint8_t> output(size);
 
-	for (size_t i = 0; i < size; ++i)
+	for (size_t i = 0; i < size - 1; ++i)
 	{
 		output[i] = static_cast<uint8_t>(content[i] ^ key);
 	}
