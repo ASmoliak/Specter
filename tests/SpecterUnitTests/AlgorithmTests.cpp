@@ -20,3 +20,19 @@ TEST(AlgorithmTests, GeneratesRandomUuid)
 {
 	EXPECT_NE(Algorithm::BuildUuid(), Algorithm::BuildUuid());
 }
+
+TEST(AlgorithmTests, GeneratesRandomUintInRange)
+{
+	constexpr uint64_t minmax = 1'000'000;
+
+	// Checking that our ranges work.
+	// Astronomical chances that it'll generate minmax without the range working 
+	// This is due to the sheer size of uint64_t
+	EXPECT_EQ(Algorithm::GenerateRandomUInt<uint64_t>(minmax, minmax), minmax);
+}
+
+TEST(AlgorithmTests, GeneratesRandomUint)
+{
+	// Astronomical chances that it'll generate the same number twice
+	EXPECT_NE(Algorithm::GenerateRandomUInt<uint64_t>(), Algorithm::GenerateRandomUInt<uint64_t>());
+}

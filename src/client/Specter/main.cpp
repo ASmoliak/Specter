@@ -1,12 +1,10 @@
-#include <iostream>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <shellapi.h>
-
-
 #include "SpecterInstance.h"
 #include "SpecterLib/StrUtils.h"
+
+#include <iostream>
+
+#include <windows.h>
+#include <shellapi.h>
 
 
 // Attempts to attach to a console, but only if process is run under one.

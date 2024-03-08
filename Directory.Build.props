@@ -50,7 +50,7 @@
 			<TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
 			<ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
 			<DisableAnalyzeExternal>true</DisableAnalyzeExternal>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0601;WIN32_LEAN_AND_MEAN;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
 	</ItemDefinitionGroup>
 

