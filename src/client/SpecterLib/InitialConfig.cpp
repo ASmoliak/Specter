@@ -19,7 +19,8 @@ InitialConfig InitialConfig::FromObscryptoB64(const std::string& args)
 	const auto key = decoded.front();
 	decoded.erase(decoded.begin());
 
-	const auto decrypted_bytes = Cryptography::Xor(decoded, key);
+	// Decrypt all but the null terminator
+	const auto decrypted_bytes = Cryptography::Xor(decoded.data(), decoded.size() - 1, key);
 
 	const auto args_string = StrUtils::FromBuffer(decrypted_bytes);
 
