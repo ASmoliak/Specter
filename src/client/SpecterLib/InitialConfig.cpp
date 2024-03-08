@@ -10,6 +10,17 @@
 #include "Cryptography.h"
 #include "StrUtils.h"
 
+std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
+{
+	boost::format formatter("--%1%=\"%2%\" --%3%=%4% --%5%=%6%");
+	formatter % server_url_option % m_server_url % server_port_option % m_server_port % guid_option % m_guid;
+
+	// Xor the args, and push the key into the start of the buffer so that we can decrypt it later
+	auto obscrypto_args = Cryptography::Xor(formatter.str(), obscrypto_key);
+	obscrypto_args.insert(obscrypto_args.begin(), obscrypto_key);
+
+	return Algorithm::EncodeBase64(obscrypto_args);
+}
 
 InitialConfig InitialConfig::FromObscryptoB64(const std::string& args)
 {
@@ -29,19 +40,6 @@ InitialConfig InitialConfig::FromObscryptoB64(const std::string& args)
 	return {args_vector};
 }
 
-std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
-{
-	boost::format formatter("--%1%=\"%2%\" --%3%=%4% --%5%=%6%");
-	formatter % server_url_option % m_server_url % server_port_option % m_server_port % guid_option % m_guid;
-
-	// Xor the args, and push the key into the start of the buffer so that we can decrypt it later
-	auto obscrypto_args = Cryptography::Xor(formatter.str(), obscrypto_key);
-	obscrypto_args.insert(obscrypto_args.begin(), obscrypto_key);
-
-	return Algorithm::EncodeBase64(obscrypto_args);
-}
-
-// Builds directly from parameters
 InitialConfig::InitialConfig(std::string server_url, std::string server_port, std::string guid) :
 	m_server_url(std::move(server_url)),
 	m_server_port(std::move(server_port)),

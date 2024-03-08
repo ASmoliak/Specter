@@ -17,8 +17,10 @@ public:
 	// finally a base64 over it so that we can pass it over registry.
 	static InitialConfig FromObscryptoB64(const std::string& args);
 
+	// Builds directly from parameters
 	InitialConfig(std::string server_url, std::string server_port, std::string guid);
 
+	// Serializes the config into the "obscrypto" protocol.
 	std::string ToObscryptoB64(uint8_t obscrypto_key) const;
 
 	std::string GetServerEndpoint() const;
