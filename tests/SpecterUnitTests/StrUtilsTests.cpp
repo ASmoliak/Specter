@@ -1,4 +1,4 @@
-﻿#include "SpecterLib/StrUtils.h"
+﻿import StrUtils;
 
 TEST(StringUtilsTests, WidensString)
 {

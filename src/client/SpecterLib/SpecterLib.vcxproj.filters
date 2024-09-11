@@ -17,9 +17,6 @@
     <Filter Include="Source Files\Utils\Process">
       <UniqueIdentifier>{c489017f-c419-4e5a-ad39-3b7391883569}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utils\ErrorHandling">
-      <UniqueIdentifier>{22a57828-6511-4068-9828-c82118d5cb39}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\PCH">
       <UniqueIdentifier>{971b6728-03a4-453e-82fb-155f949a465c}</UniqueIdentifier>
     </Filter>
@@ -43,9 +40,6 @@
     <ClCompile Include="TimeUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="StrUtils.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="BaseHandleWrapper.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
@@ -64,9 +58,6 @@
     <ClCompile Include="ProcessUtils.cpp">
       <Filter>Source Files\Utils\Process</Filter>
     </ClCompile>
-    <ClCompile Include="SyscallException.cpp">
-      <Filter>Source Files\Utils\ErrorHandling</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\PCH</Filter>
     </ClCompile>
@@ -78,6 +69,12 @@
     </ClCompile>
     <ClCompile Include="InitialConfig.cpp">
       <Filter>Source Files\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="StrUtils.ixx">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="SyscallException.ixx">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +93,6 @@
     <ClInclude Include="SystemInfo.h">
       <Filter>Source Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="StrUtils.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="AllHandleWrappers.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClInclude>
@@ -113,9 +107,6 @@
     </ClInclude>
     <ClInclude Include="ProcessUtils.h">
       <Filter>Source Files\Utils\Process</Filter>
-    </ClInclude>
-    <ClInclude Include="SyscallException.h">
-      <Filter>Source Files\Utils\ErrorHandling</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Source Files\PCH</Filter>

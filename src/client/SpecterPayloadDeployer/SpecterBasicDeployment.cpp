@@ -1,5 +1,6 @@
+import SyscallException;
+
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/SyscallException.h"
 #include "SpecterLib/CommonPaths.h"
 #include "SpecterLib/ResourceUtils.h"
 #include "SpecterLib/ProcessUtils.h"
