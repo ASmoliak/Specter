@@ -1,4 +1,6 @@
-#include "SpecterLib/CommonPaths.h"
+import CommonPaths;
+
+#include <filesystem>
 
 TEST(CommonPathsTests, GetsNonEmptyLocalPath)
 {

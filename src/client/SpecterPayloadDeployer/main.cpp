@@ -1,9 +1,11 @@
+import StrUtils;
+import Algorithm;
+
 #include <windows.h>
 
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/Algorithm.h"
 #include "SpecterLib/InitialConfig.h"
-import StrUtils;
+
 
 //#include "SpecterLib/SelfProcessUtils.h"
 //if (SelfProcessUtils::IsProcessElevated())

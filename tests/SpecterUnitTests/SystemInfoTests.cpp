@@ -1,4 +1,4 @@
-#include "SpecterLib/SystemInfo.h"
+import SystemInfo;
 
 TEST(SystemInfoTests, GetsNonEmptyHdSerial)
 {

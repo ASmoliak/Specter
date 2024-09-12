@@ -28,29 +28,11 @@
     <ClCompile Include="ServerConnection.cpp">
       <Filter>Source Files\Comms</Filter>
     </ClCompile>
-    <ClCompile Include="CommonPaths.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="SystemInfo.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInfo.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="TimeUtils.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="BaseHandleWrapper.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
     <ClCompile Include="AllHandleWrappers.cpp">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceUtils.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="ApplicationMutex.cpp">
-      <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="SelfProcessUtils.cpp">
       <Filter>Source Files\Utils\Process</Filter>
@@ -61,46 +43,46 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\PCH</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithm.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Cryptography.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="InitialConfig.cpp">
       <Filter>Source Files\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="StrUtils.ixx">
+    <ClCompile Include="StrUtils.cppm">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="SyscallException.ixx">
+    <ClCompile Include="SyscallException.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemInfo.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationMutex.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPaths.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptography.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceUtils.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeUtils.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInfo.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithm.cppm">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TimeUtils.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="ServerConnection.h">
       <Filter>Source Files\Comms</Filter>
     </ClInclude>
-    <ClInclude Include="CommonPaths.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInfo.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="SystemInfo.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="AllHandleWrappers.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceUtils.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="ApplicationMutex.h">
-      <Filter>Source Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="SelfProcessUtils.h">
       <Filter>Source Files\Utils\Process</Filter>
@@ -111,16 +93,8 @@
     <ClInclude Include="pch.h">
       <Filter>Source Files\PCH</Filter>
     </ClInclude>
-    <ClInclude Include="Cryptography.h">
-      <Filter>Source Files\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="InitialConfig.h">
       <Filter>Source Files\Configuration</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Algorithm.h">
-      <Filter>Source Files\Utils</Filter>
-    </None>
   </ItemGroup>
 </Project>

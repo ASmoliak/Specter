@@ -1,4 +1,4 @@
-#include "SpecterLib/ApplicationMutex.h"
+import ApplicationMutex;
 
 TEST(ApplicationMutexTests, GetsOwnershipOfUniqueMutex)
 {

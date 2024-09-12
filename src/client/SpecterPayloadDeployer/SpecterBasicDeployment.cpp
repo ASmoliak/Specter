@@ -1,8 +1,8 @@
 import SyscallException;
+import CommonPaths;
+import ResourceUtils;
 
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/CommonPaths.h"
-#include "SpecterLib/ResourceUtils.h"
 #include "SpecterLib/ProcessUtils.h"
 #include "resource.h"
 
