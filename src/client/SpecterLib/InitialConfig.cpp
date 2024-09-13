@@ -1,5 +1,3 @@
-import StrUtils;
-
 #include "InitialConfig.h"
 #include "Algorithm.h"
 
@@ -10,7 +8,7 @@ import StrUtils;
 #include <boost/format.hpp>
 
 #include "Cryptography.h"
-
+#include "StrUtils.h"
 
 std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
 {

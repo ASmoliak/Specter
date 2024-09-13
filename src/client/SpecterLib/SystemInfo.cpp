@@ -1,8 +1,7 @@
-import StrUtils;
-import SyscallException;
-
 #include "SystemInfo.h"
 #include "TimeUtils.h"
+#include "SyscallException.h"
+#include "StrUtils.h"
 #include <winreg/WinReg.hpp>
 
 std::string SystemInfo::GetUptime()

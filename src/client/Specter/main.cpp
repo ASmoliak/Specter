@@ -1,8 +1,8 @@
-import StrUtils;
-
 #include "SpecterInstance.h"
+#include "SpecterLib/StrUtils.h"
 
 #include <iostream>
+
 #include <windows.h>
 #include <shellapi.h>
 

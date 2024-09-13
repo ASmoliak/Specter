@@ -3,7 +3,7 @@
 #include "SpecterBasicDeployment.hpp"
 #include "SpecterLib/Algorithm.h"
 #include "SpecterLib/InitialConfig.h"
-import StrUtils;
+#include "SpecterLib/StrUtils.h"
 
 //#include "SpecterLib/SelfProcessUtils.h"
 //if (SelfProcessUtils::IsProcessElevated())

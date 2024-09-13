@@ -1,4 +1,4 @@
-import SyscallException;
+#include "SpecterLib/SyscallException.h"
 
 TEST(SyscallExceptionTests, ProperlyFormatsError)
 {

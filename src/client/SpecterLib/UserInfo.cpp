@@ -1,6 +1,5 @@
-import SyscallException;
-
 #include "UserInfo.h"
+#include "SyscallException.h"
 
 #include <lmcons.h>
 
