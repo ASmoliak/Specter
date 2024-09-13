@@ -18,7 +18,7 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 		if (argc != 2)
 		{
 			return 0;
-		};
+		}
 
 		auto initial_config = InitialConfig::FromObscryptoB64(StrUtils::Shorten(argv[1]));
 

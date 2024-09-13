@@ -21,7 +21,7 @@
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 	
-	<!-- This property group deals whether or not to use debug libraries -->
+	<!-- This property group deals whether to use debug libraries -->
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
 		<UseDebugLibraries>true</UseDebugLibraries>
 	</PropertyGroup>

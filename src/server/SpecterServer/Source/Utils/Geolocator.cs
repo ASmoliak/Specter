@@ -1,6 +1,4 @@
 ﻿using System.IO.Compression;
-using System.Security.Cryptography;
-using System.Text;
 using IP2Location;
 
 namespace SpecterServer.Source.Utils
@@ -16,7 +14,7 @@ namespace SpecterServer.Source.Utils
 
         public Geolocator()
         {
-            if (new FileInfo(DbZipFileName) is not { Exists: true, Length: > 0 })
+            if (new FileInfo(DbZipFileName) is not {Exists: true, Length: > 0})
             {
                 DumpResourceDbToDisk();
             }
@@ -41,8 +39,7 @@ namespace SpecterServer.Source.Utils
                 return;
             }
 
-            var choice = MessageBox.Show(@"Geolocation database has an update, download now?", @"IP-DB updates available",
-                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var choice = MessageBox.Show(@"Geolocation database has an update, download now?", @"IP-DB updates available", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (choice == DialogResult.No)
             {
@@ -61,8 +58,7 @@ namespace SpecterServer.Source.Utils
             using FileStream newDbStream = new(DbZipFileName, FileMode.OpenOrCreate, FileAccess.Write);
             newDbStream.Write(latestDb.Result);
 
-            choice = MessageBox.Show(@"Geolocation database successfully updated, restart now?", @"IP-DB updated",
-                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            choice = MessageBox.Show(@"Geolocation database successfully updated, restart now?", @"IP-DB updated", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (choice == DialogResult.No)
             {
@@ -95,7 +91,7 @@ namespace SpecterServer.Source.Utils
             return latestDbMd5.IsCompletedSuccessfully && latestDbMd5.Result[..32] == existingDbHash;
         }
 
-        private void DumpResourceDbToDisk()
+        private static void DumpResourceDbToDisk()
         {
             using FileStream fileStream = new(DbZipFileName, FileMode.Create, FileAccess.Write);
             fileStream.Write(Resources.Resources.IP2LOCATION_LITE_DB1_BIN);
