@@ -1,7 +1,6 @@
 module;
 #include <optional>
 #include <vector>
-#include <windows.h>
 export module ResourceUtils;
 
 export class ResourceUtils

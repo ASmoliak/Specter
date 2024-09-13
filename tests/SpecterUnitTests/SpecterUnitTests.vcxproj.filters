@@ -22,6 +22,9 @@
     <ClCompile Include="StrUtilsTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>
+    <ClCompile Include="SelfProcessUtilsTests.cpp">
+      <Filter>Source\SpecterLibTests</Filter>
+    </ClCompile>
     <ClCompile Include="ResourceUtilsTests.cpp">
       <Filter>Source\SpecterLibTests</Filter>
     </ClCompile>

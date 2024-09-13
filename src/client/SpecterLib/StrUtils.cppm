@@ -1,7 +1,5 @@
 module;
 #include <string>
-#include <vector>
-#include <windows.h>
 export module StrUtils;
 
 import SyscallException;

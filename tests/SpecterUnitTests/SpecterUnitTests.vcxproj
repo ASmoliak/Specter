@@ -93,6 +93,7 @@
     <ClCompile Include="InitialConfigTests.cpp" />
     <ClCompile Include="ProcessUtilsTests.cpp" />
     <ClCompile Include="ResourceUtilsTests.cpp" />
+    <ClCompile Include="SelfProcessUtilsTests.cpp" />
     <ClCompile Include="StrUtilsTests.cpp" />
     <ClCompile Include="SyscallExceptionTests.cpp" />
     <ClCompile Include="SystemInfoTests.cpp" />

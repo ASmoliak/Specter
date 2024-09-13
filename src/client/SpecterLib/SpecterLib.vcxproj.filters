@@ -14,6 +14,9 @@
     <Filter Include="Source Files\Utils\HandleWrapping">
       <UniqueIdentifier>{31ca0e93-041b-4f46-9b4e-59407b778dbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Process">
+      <UniqueIdentifier>{c489017f-c419-4e5a-ad39-3b7391883569}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\PCH">
       <UniqueIdentifier>{971b6728-03a4-453e-82fb-155f949a465c}</UniqueIdentifier>
     </Filter>
@@ -31,6 +34,12 @@
     <ClCompile Include="AllHandleWrappers.cpp">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
     </ClCompile>
+    <ClCompile Include="SelfProcessUtils.cpp">
+      <Filter>Source Files\Utils\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessUtils.cpp">
+      <Filter>Source Files\Utils\Process</Filter>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\PCH</Filter>
     </ClCompile>
@@ -38,6 +47,9 @@
       <Filter>Source Files\Configuration</Filter>
     </ClCompile>
     <ClCompile Include="StrUtils.cppm">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="SyscallException.cppm">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="SystemInfo.cppm">
@@ -64,12 +76,6 @@
     <ClCompile Include="Algorithm.cppm">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="ProcessUtils.cppm">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="SyscallException.cppm">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerConnection.h">
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="AllHandleWrappers.h">
       <Filter>Source Files\Utils\HandleWrapping</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfProcessUtils.h">
+      <Filter>Source Files\Utils\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessUtils.h">
+      <Filter>Source Files\Utils\Process</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Source Files\PCH</Filter>

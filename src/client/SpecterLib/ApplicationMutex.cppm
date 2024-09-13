@@ -1,7 +1,6 @@
 module;
 #include <stdexcept>
 #include <string>
-#include <windows.h>
 #include "AllHandleWrappers.h"
 export module ApplicationMutex;
 
