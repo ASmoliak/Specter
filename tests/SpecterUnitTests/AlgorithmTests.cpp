@@ -1,8 +1,4 @@
-import Algorithm;
-#include <string>
-
-#include <boost/uuid/uuid_io.hpp>
-
+#include "SpecterLib/Algorithm.h"
 
 TEST(AlgorithmTests, EncodesDecodesBase64)
 {

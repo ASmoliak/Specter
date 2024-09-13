@@ -1,4 +1,6 @@
-import UserInfo;
+#include <lmcons.h>
+
+#include "SpecterLib/UserInfo.h"
 
 TEST(UserInfoTests, UsernameIsntEmpty)
 {
@@ -7,7 +9,7 @@ TEST(UserInfoTests, UsernameIsntEmpty)
 
 TEST(UserInfoTests, UsernameIsntTooBig)
 {
-	EXPECT_LT(UserInfo::GetUsername().size(), UserInfo::GetUsernameMaxLen() + 1);
+	EXPECT_LT(UserInfo::GetUsername().size(), UNLEN + 1);
 }
 
 TEST(UserInfoTests, MachineNameIsntEmpty)

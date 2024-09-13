@@ -1,4 +1,4 @@
-import Cryptography;
+#include "SpecterLib/Cryptography.h"
 
 static constexpr char key = 'x';
 

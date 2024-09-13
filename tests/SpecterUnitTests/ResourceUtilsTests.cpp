@@ -1,6 +1,6 @@
 // ReSharper disable CppClangTidyBugproneUncheckedOptionalAccess
 #include "resource.h"
-import ResourceUtils;
+#include "SpecterLib/ResourceUtils.h"
 
 TEST(ResourceUtilsTests, FailsToReadNonExistentResource)
 {

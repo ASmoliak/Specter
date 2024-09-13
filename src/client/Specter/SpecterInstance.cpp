@@ -1,10 +1,10 @@
-import SystemInfo;
-import UserInfo;
-
 #include "SpecterInstance.h"
 
 #include <iostream>
 #include <windows.h>
+
+#include "SpecterLib/SystemInfo.h"
+#include "SpecterLib/UserInfo.h"
 
 SpecterInstance::SpecterInstance(InitialConfig initial_config):
 	m_initial_config(std::move(initial_config)),

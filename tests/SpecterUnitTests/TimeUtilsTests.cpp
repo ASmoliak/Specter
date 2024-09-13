@@ -1,4 +1,4 @@
-import TimeUtils;
+#include "SpecterLib/TimeUtils.h"
 
 TEST(TimeUtilsTests, EmptyTimeGivesEmptyFormat)
 {

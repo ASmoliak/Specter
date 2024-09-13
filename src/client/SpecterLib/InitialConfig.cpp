@@ -1,14 +1,15 @@
 import StrUtils;
-import Cryptography;
-import Algorithm;
 
 #include "InitialConfig.h"
+#include "Algorithm.h"
 
 #include <iostream>
 #include <shellapi.h>
 
 #include <boost/program_options.hpp>
 #include <boost/format.hpp>
+
+#include "Cryptography.h"
 
 
 std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
