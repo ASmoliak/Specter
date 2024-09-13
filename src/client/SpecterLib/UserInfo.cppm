@@ -1,6 +1,7 @@
 module;
 #include <string>
 #include <lmcons.h>
+#include <windows.h>
 export module UserInfo;
 
 import SyscallException;

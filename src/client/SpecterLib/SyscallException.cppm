@@ -1,7 +1,7 @@
 module;
+#include <windows.h>
 #include <system_error>
 #include <string>
-#include <minwindef.h>
 export module SyscallException;
 
 // Use this when bad things happen after a Windows syscall.

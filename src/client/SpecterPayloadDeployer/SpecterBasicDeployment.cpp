@@ -1,13 +1,15 @@
 import SyscallException;
 import CommonPaths;
 import ResourceUtils;
+import ProcessUtils;
 
 #include "SpecterBasicDeployment.hpp"
-#include "SpecterLib/ProcessUtils.h"
 #include "resource.h"
 
 #include <fstream>
 #include <boost/format.hpp>
+//#include <boost/process/spawn.hpp>
+
 #include <winreg/WinReg.hpp>
 
 SpecterBasicDeployment::SpecterBasicDeployment(std::wstring program_name, const std::wstring& target_file_name, std::wstring obscrypto_args) :

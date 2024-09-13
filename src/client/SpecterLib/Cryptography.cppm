@@ -3,6 +3,8 @@ module;
 #include <string>
 export module Cryptography;
 
+import ProcessUtils;
+
 export class Cryptography
 {
 public:
@@ -13,6 +15,8 @@ public:
 
 	static std::vector<uint8_t> Xor(const std::vector<uint8_t>& content, uint8_t key)
 	{
+		ProcessUtils::RunProcess("test", L"test2");
+
 		return Xor(content.data(), content.size(), key);
 	}
 
