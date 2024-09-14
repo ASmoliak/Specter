@@ -7,34 +7,44 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/lexical_cast.hpp>
 
-std::string Algorithm::EncodeBase64(const std::vector<uint8_t>& raw_content)
+using namespace boost::beast::detail;
+
+std::string Algorithm::EncodeBase64(const std::vector<uint8_t>& content)
 {
-	using namespace boost::beast::detail;
-	const auto encoded_size = base64::encoded_size(raw_content.size());
-
-	std::string base64;
-	base64.resize(encoded_size);
-	base64::encode(base64.data(), raw_content.data(), raw_content.size());
-
-	return base64;
+	std::string encoded(base64::encoded_size(content.size()), 0);
+	base64::encode(encoded.data(), content.data(), content.size());
+	return encoded;
 }
 
 std::vector<uint8_t> Algorithm::DecodeBase64(const std::string& base64)
 {
-	using namespace boost::beast::detail;
-	const auto decoded_size = base64::decoded_size(base64.size());
+	std::vector<uint8_t> decoded(base64::decoded_size(base64.size()), 0);
+	base64::decode(decoded.data(), base64.data(), base64.size());
+	return decoded;
+}
 
-	std::vector<uint8_t> raw_content;
-	raw_content.resize(decoded_size);
-	base64::decode(raw_content.data(), base64.data(), base64.size());
+bool Algorithm::IsBase64(const std::string& str)
+{
+	if (str.size() % 4)
+	{
+		return false;
+	}
 
-	return raw_content;
+	try
+	{
+		std::vector<uint8_t> decoded(base64::decoded_size(str.size()), 0);
+		const auto [outputSize, _] = base64::decode(decoded.data(), str.data(), str.size());
+		return outputSize == decoded.size();
+	}
+	catch (...)
+	{
+		return false;
+	}
 }
 
 std::string Algorithm::BuildUuid()
 {
 	const auto uuid = boost::uuids::random_generator()();
-
 	return boost::lexical_cast<std::string>(uuid);
 }
 
@@ -43,6 +53,5 @@ uint64_t Algorithm::GenerateRandomUIntImpl(uint64_t min, uint64_t max)
 	std::random_device random_device;
 	std::mt19937 generator(random_device());
 	std::uniform_int_distribution distribution(min, max);
-
 	return distribution(generator);
 }

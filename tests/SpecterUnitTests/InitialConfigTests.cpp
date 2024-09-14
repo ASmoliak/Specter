@@ -5,10 +5,10 @@ TEST(InitialConfigTests, EncodesAndParsesObscryptoProperly)
 	const InitialConfig original_config("SampleServerUrl", "SampleServerPort", "SampleGuid");
 	constexpr uint8_t sample_key = 'x';
 
-	const auto obscrypto_b64 = original_config.ToObscryptoB64(sample_key);
+	const auto obscrypto_b64 = original_config.Serialize(sample_key);
 	EXPECT_FALSE(obscrypto_b64.empty());
 
-	const auto parsed_config = InitialConfig::FromObscryptoB64(obscrypto_b64);
+	const auto parsed_config = InitialConfig::BuildFromSerialized(obscrypto_b64);
 
 	EXPECT_EQ(original_config.GetServerEndpoint(), parsed_config.GetServerEndpoint());
 	EXPECT_EQ(original_config.GetServerPort(), parsed_config.GetServerPort());

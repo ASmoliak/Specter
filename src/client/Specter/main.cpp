@@ -20,7 +20,7 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 			return 0;
 		}
 
-		auto initial_config = InitialConfig::FromObscryptoB64(StrUtils::Shorten(argv[1]));
+		auto initial_config = InitialConfig::BuildFromSerialized(StrUtils::Shorten(argv[1]));
 
 		SpecterInstance specter(std::move(initial_config));
 

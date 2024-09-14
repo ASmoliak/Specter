@@ -1,5 +1,4 @@
 #include "InitialConfig.h"
-#include "Algorithm.h"
 
 #include <iostream>
 #include <shellapi.h>
@@ -8,36 +7,20 @@
 #include <boost/format.hpp>
 
 #include "Cryptography.h"
-#include "StrUtils.h"
 
-std::string InitialConfig::ToObscryptoB64(uint8_t obscrypto_key) const
+std::string InitialConfig::Serialize(uint8_t obscrypto_key) const
 {
 	boost::format formatter("--%1%=\"%2%\" --%3%=%4% --%5%=%6%");
 	formatter % server_url_option % m_server_url % server_port_option % m_server_port % guid_option % m_guid;
 
-	// Xor the args, and push the key into the start of the buffer so that we can decrypt it later
-	auto obscrypto_args = Cryptography::Xor(formatter.str(), obscrypto_key);
-	obscrypto_args.insert(obscrypto_args.begin(), obscrypto_key);
-
-	return Algorithm::EncodeBase64(obscrypto_args);
+	return Cryptography::ToObscryptoB64(formatter.str(), obscrypto_key);
 }
 
-InitialConfig InitialConfig::FromObscryptoB64(const std::string& args)
+InitialConfig InitialConfig::BuildFromSerialized(const std::string& args)
 {
-	auto decoded = Algorithm::DecodeBase64(args);
+	const auto args_string = Cryptography::FromObscryptoB64(args);
 
-	// Grab the key and remove it from the vector
-	const auto key = decoded.front();
-	decoded.erase(decoded.begin());
-
-	// Decrypt all but the null terminator
-	const auto decrypted_bytes = Cryptography::Xor(decoded.data(), decoded.size() - 1, key);
-
-	const auto args_string = StrUtils::FromBuffer(decrypted_bytes);
-
-	const auto args_vector = boost::program_options::split_winmain(args_string);
-
-	return {args_vector};
+	return {boost::program_options::split_winmain(args_string)};
 }
 
 InitialConfig::InitialConfig(std::string server_url, std::string server_port, std::string guid) :
@@ -76,7 +59,7 @@ InitialConfig::InitialConfig(const std::vector<std::string>& args)
 	}
 	catch (const po::error& e)
 	{
-		std::cout << "Failed to parse command line, error: " << e.what() << std::endl;
+		std::cout << "Failed to parse command line, error: " << e.what() << '\n';
 		std::_Exit(1);
 	}
 }
